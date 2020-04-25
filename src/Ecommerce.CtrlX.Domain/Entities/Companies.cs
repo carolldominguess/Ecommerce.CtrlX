@@ -11,8 +11,8 @@ namespace Ecommerce.CtrlX.Domain.Entities
         public string Logo { get; set; }
         public DateTime DataCadastro { get; set; }
         public DateTime DataAlteracao { get; set; }
-        public int DepartmentsId { get; set; }
-        public virtual Departments Departments { get; set; }
+        public int DepartamentsId { get; set; }
+        public virtual Departaments Departaments { get; set; }
         public int CitiesId { get; set; }
         public virtual Cities Cities { get; set; }  
     }

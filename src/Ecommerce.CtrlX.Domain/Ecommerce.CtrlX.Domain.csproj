@@ -37,8 +37,10 @@
     <Compile Include="Entities\Categories.cs" />
     <Compile Include="Entities\Cities.cs" />
     <Compile Include="Entities\Companies.cs" />
-    <Compile Include="Entities\Departments.cs" />
+    <Compile Include="Entities\Departaments.cs" />
     <Compile Include="Entities\Taxes.cs" />
+    <Compile Include="Interfaces\Repository\IDepartamentsRepository.cs" />
+    <Compile Include="Interfaces\Repository\IRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

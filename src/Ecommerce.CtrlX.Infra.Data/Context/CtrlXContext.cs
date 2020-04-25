@@ -1,4 +1,5 @@
 ﻿using Ecommerce.CtrlX.Domain.Entities;
+using Ecommerce.CtrlX.Infra.Data.EntityConfig;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
 
@@ -10,7 +11,7 @@ namespace Ecommerce.CtrlX.Infra.Data.Context
             : base("DefaultConnection") { }
 
         #region EntitiesCtrlX
-        public DbSet<Departments> Departments { get; set; }
+        public DbSet<Departaments> Departments { get; set; }
         public DbSet<Cities> Cities { get; set; }
         public DbSet<Companies> Companies { get; set; }
         public DbSet<Categories> Categories { get; set; }
@@ -30,6 +31,9 @@ namespace Ecommerce.CtrlX.Infra.Data.Context
             modelBuilder.Properties<string>()
                 .Configure(p => p.HasColumnType("varchar"));
 
+            #region EntitiesCtrlxConfig
+            modelBuilder.Configurations.Add(new DepartamentsConfig());
+            #endregion
 
 
             base.OnModelCreating(modelBuilder);

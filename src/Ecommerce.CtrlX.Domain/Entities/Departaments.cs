@@ -2,9 +2,9 @@
 
 namespace Ecommerce.CtrlX.Domain.Entities
 {
-    public class Departments
+    public class Departaments
     {
-        public int DepartmentsId { get; set; }
+        public int DepartamentsId { get; set; }
         public string Name { get; set; }
         public DateTime DataCadastro { get; set; }
         public DateTime DataAlteracao { get; set; }
