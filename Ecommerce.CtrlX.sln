@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ecommerce.CtrlX.Domain", "s
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ecommerce.CtrlX.Infra.Data", "src\Ecommerce.CtrlX.Infra.Data\Ecommerce.CtrlX.Infra.Data.csproj", "{69926120-006B-45AC-A45A-C2E43B6364C3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ecommerce.CtrlX.Application", "src\Ecommerce.CtrlX.Application\Ecommerce.CtrlX.Application.csproj", "{FFE549CD-F9EE-4DA6-9AE9-918C30535287}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{69926120-006B-45AC-A45A-C2E43B6364C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{69926120-006B-45AC-A45A-C2E43B6364C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{69926120-006B-45AC-A45A-C2E43B6364C3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FFE549CD-F9EE-4DA6-9AE9-918C30535287}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FFE549CD-F9EE-4DA6-9AE9-918C30535287}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FFE549CD-F9EE-4DA6-9AE9-918C30535287}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FFE549CD-F9EE-4DA6-9AE9-918C30535287}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -49,6 +55,7 @@ Global
 		{A2B2D011-B388-4355-A7D3-C00B36217B76} = {C5C49C95-A135-4298-A798-A12A7C32AABB}
 		{F0CAAE12-8309-454B-97FA-9ED88E4A0220} = {49494DB6-C719-47A7-A500-6BFC7BDDE910}
 		{69926120-006B-45AC-A45A-C2E43B6364C3} = {5A55761E-0FD7-4AD3-A447-D591F9C7596E}
+		{FFE549CD-F9EE-4DA6-9AE9-918C30535287} = {46A5819F-7FED-4A53-AC10-7DB6169D5E59}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2C6489D1-69E8-4671-A663-3C6AEBDB6B60}
