@@ -1,10 +1,10 @@
-﻿using System;
+﻿using Ecommerce.CtrlX.Domain.Interfaces.Repository;
+using Ecommerce.CtrlX.Infra.Data.Context;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Linq;
 using System.Linq.Expressions;
-using System.Threading.Tasks;
-using Ecommerce.CtrlX.Domain.Interfaces.Repository;
-using Ecommerce.CtrlX.Infra.Data.Context;
 
 namespace Ecommerce.CtrlX.Infra.Data.Repository
 {
@@ -21,122 +21,72 @@ namespace Ecommerce.CtrlX.Infra.Data.Repository
 
         public TEntity Add(TEntity obj)
         {
-            throw new NotImplementedException();
+            return DbSet.Add(obj);
         }
 
         public void AddControl(TEntity obj)
         {
-            throw new NotImplementedException();
+            DbSet.Add(obj);
         }
 
         public TEntity AddSaveChanges(TEntity obj)
         {
-            throw new NotImplementedException();
+            var objReturn = DbSet.Add(obj);
+            SaveChanges();
+            return objReturn;
         }
-
-        public Task<TEntity> AddSaveChangesAsync(TEntity obj)
-        {
-            throw new NotImplementedException();
-        }
-
         public IEnumerable<TEntity> GetAll()
         {
-            throw new NotImplementedException();
+            return DbSet.ToList();
         }
 
         public IEnumerable<TEntity> GetAll(int t, int s)
         {
-            throw new NotImplementedException();
-        }
-
-        public Task<IEnumerable<TEntity>> GetAllAsync()
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<IEnumerable<TEntity>> GetAllAsync(int t, int s)
-        {
-            throw new NotImplementedException();
+            return DbSet.Take(t).Skip(s).ToList();
         }
 
         public TEntity GetById(int id)
         {
-            throw new NotImplementedException();
+            return DbSet.Find(id);
         }
-
-        public Task<TEntity> GetByIdAsync(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<TEntity> GetByIdAsyncReadOnly(int? id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public TEntity GetByIdReadOnly(int id)
-        {
-            throw new NotImplementedException();
-        }
-
         public void Remove(int id)
         {
-            throw new NotImplementedException();
+            DbSet.Remove(GetById(id));
         }
 
         public void Remove(TEntity obj)
         {
-            throw new NotImplementedException();
+            DbSet.Remove(obj);
         }
-
-        public Task RemoveAsync(int id)
-        {
-            throw new NotImplementedException();
-        }
-
         public int SaveChanges()
         {
-            throw new NotImplementedException();
+            return Db.SaveChanges();
         }
-
-        public Task<int> SaveChangesAsync()
-        {
-            throw new NotImplementedException();
-        }
-
         public IEnumerable<TEntity> Search(Expression<Func<TEntity, bool>> predicate)
         {
-            throw new NotImplementedException();
+            return DbSet.Where(predicate).ToList();
         }
-
-        public Task<IEnumerable<TEntity>> SearchAsync(Expression<Func<TEntity, bool>> predicate)
-        {
-            throw new NotImplementedException();
-        }
-
         public TEntity SearchFirstOrDefault(Expression<Func<TEntity, bool>> predicate)
         {
-            throw new NotImplementedException();
-        }
-
-        public Task<TEntity> SearchFirstOrDefaultAsync(Expression<Func<TEntity, bool>> predicate)
-        {
-            throw new NotImplementedException();
+            return DbSet.FirstOrDefault(predicate);
         }
 
         public TEntity Update(TEntity obj)
         {
-            throw new NotImplementedException();
+            var entry = Db.Entry(obj);
+            DbSet.Attach(obj);
+            entry.State = EntityState.Modified;
+            return obj;
         }
 
         public TEntity UpdateSaveChanges(TEntity obj)
         {
-            throw new NotImplementedException();
-        }
+            var entry = Db.Entry(obj);
+            DbSet.Attach(obj);
+            entry.State = EntityState.Modified;
+            SaveChanges();
 
-        public Task<TEntity> UpdateSaveChangesAsync(TEntity obj)
-        {
-            throw new NotImplementedException();
+            return obj;
         }
 
         #region IDisposable Support
@@ -169,9 +119,9 @@ namespace Ecommerce.CtrlX.Infra.Data.Repository
         public void Dispose()
         {
             // Do not change this code. Put cleanup code in Dispose(bool disposing) above.
-            Dispose(true);
+            Db.Dispose();
             // TODO: uncomment the following line if the finalizer is overridden above.
-            // GC.SuppressFinalize(this);
+            GC.SuppressFinalize(this);
         }
         #endregion
     }
