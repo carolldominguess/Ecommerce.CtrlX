@@ -4,16 +4,14 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{69926120-006B-45AC-A45A-C2E43B6364C3}</ProjectGuid>
+    <ProjectGuid>{72BBF9ED-C072-4612-B734-866BD3712BD0}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Ecommerce.CtrlX.Infra.Data</RootNamespace>
-    <AssemblyName>Ecommerce.CtrlX.Infra.Data</AssemblyName>
+    <RootNamespace>Ecommerce.CtrlX.CrossCutting.IoC</RootNamespace>
+    <AssemblyName>Ecommerce.CtrlX.CrossCutting.IoC</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
-    <NuGetPackageImportStamp>
-    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -33,17 +31,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Dapper, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Dapper.2.0.35\lib\net461\Dapper.dll</HintPath>
-    </Reference>
-    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
-    </Reference>
-    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    <Reference Include="SimpleInjector, Version=4.10.2.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\SimpleInjector.4.10.2\lib\net45\SimpleInjector.dll</HintPath>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -53,25 +44,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Context\CtrlXContext.cs" />
-    <Compile Include="EntityConfig\DepartamentsConfig.cs" />
-    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="BootStrapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repository\DepartamentsRepository.cs" />
-    <Compile Include="Repository\Repository.cs" />
-    <Compile Include="UoW\IUnitOfWork.cs" />
-    <Compile Include="UoW\UnitOfWork.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
+    <ProjectReference Include="..\Ecommerce.CtrlX.Application\Ecommerce.CtrlX.Application.csproj">
+      <Project>{ffe549cd-f9ee-4da6-9ae9-918c30535287}</Project>
+      <Name>Ecommerce.CtrlX.Application</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Ecommerce.CtrlX.Domain\Ecommerce.CtrlX.Domain.csproj">
-      <Project>{F0CAAE12-8309-454B-97FA-9ED88E4A0220}</Project>
+      <Project>{f0caae12-8309-454b-97fa-9ed88e4a0220}</Project>
       <Name>Ecommerce.CtrlX.Domain</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Ecommerce.CtrlX.Infra.Data\Ecommerce.CtrlX.Infra.Data.csproj">
+      <Project>{69926120-006b-45ac-a45a-c2e43b6364c3}</Project>
+      <Name>Ecommerce.CtrlX.Infra.Data</Name>
+    </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
