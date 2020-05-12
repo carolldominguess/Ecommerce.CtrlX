@@ -19,42 +19,42 @@ namespace Ecommerce.CtrlX.Infra.Data.Repository
             DbSet = Db.Set<TEntity>();
         }
 
-        public TEntity Add(TEntity obj)
+        public virtual TEntity Add(TEntity obj)
         {
             return DbSet.Add(obj);
         }
 
-        public void AddControl(TEntity obj)
+        public virtual void AddControl(TEntity obj)
         {
             DbSet.Add(obj);
         }
 
-        public TEntity AddSaveChanges(TEntity obj)
+        public virtual TEntity AddSaveChanges(TEntity obj)
         {
             var objReturn = DbSet.Add(obj);
             SaveChanges();
             return objReturn;
         }
-        public IEnumerable<TEntity> GetAll()
+        public virtual IEnumerable<TEntity> GetAll()
         {
             return DbSet.ToList();
         }
 
-        public IEnumerable<TEntity> GetAll(int t, int s)
+        public virtual IEnumerable<TEntity> GetAll(int t, int s)
         {
             return DbSet.Take(t).Skip(s).ToList();
         }
 
-        public TEntity GetById(int id)
+        public virtual TEntity GetById(int id)
         {
             return DbSet.Find(id);
         }
-        public void Remove(int id)
+        public virtual void Remove(int id)
         {
             DbSet.Remove(GetById(id));
         }
 
-        public void Remove(TEntity obj)
+        public virtual void Remove(TEntity obj)
         {
             DbSet.Remove(obj);
         }
@@ -71,7 +71,7 @@ namespace Ecommerce.CtrlX.Infra.Data.Repository
             return DbSet.FirstOrDefault(predicate);
         }
 
-        public TEntity Update(TEntity obj)
+        public virtual TEntity Update(TEntity obj)
         {
             var entry = Db.Entry(obj);
             DbSet.Attach(obj);

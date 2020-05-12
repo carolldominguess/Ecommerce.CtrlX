@@ -47,8 +47,10 @@
     <Compile Include="AutoMapper\AutoMapperConfig.cs" />
     <Compile Include="AutoMapper\DomainToViewModelMappingProfile.cs" />
     <Compile Include="AutoMapper\ViewModelToDomainMappingProfile.cs" />
+    <Compile Include="Interfaces\IDepartamentsService.cs" />
     <Compile Include="Interfaces\IServiceBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\DepartamentsService.cs" />
     <Compile Include="Services\ServiceBase.cs" />
     <Compile Include="ViewModels\DepartamentsViewModel.cs" />
   </ItemGroup>
