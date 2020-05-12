@@ -12,10 +12,7 @@ namespace Ecommerce.CtrlX.Infra.Data.Context
 
         #region EntitiesCtrlX
         public DbSet<Departaments> Departments { get; set; }
-        public DbSet<Cities> Cities { get; set; }
-        public DbSet<Companies> Companies { get; set; }
         public DbSet<Categories> Categories { get; set; }
-        public DbSet<Taxes> Taxes { get; set; }
         #endregion
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
