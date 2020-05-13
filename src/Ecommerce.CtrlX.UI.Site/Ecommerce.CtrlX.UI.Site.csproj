@@ -181,6 +181,7 @@
     <Compile Include="App_Start\SimpleInjectorInitializer.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\DepartamentsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
@@ -248,6 +249,11 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Departaments\Create.cshtml" />
+    <Content Include="Views\Departaments\Delete.cshtml" />
+    <Content Include="Views\Departaments\Details.cshtml" />
+    <Content Include="Views\Departaments\Edit.cshtml" />
+    <Content Include="Views\Departaments\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -273,6 +279,10 @@
     <ProjectReference Include="..\Ecommerce.CtrlX.CrossCutting.IoC\Ecommerce.CtrlX.CrossCutting.IoC.csproj">
       <Project>{72bbf9ed-c072-4612-b734-866bd3712bd0}</Project>
       <Name>Ecommerce.CtrlX.CrossCutting.IoC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Ecommerce.CtrlX.Infra.Data\Ecommerce.CtrlX.Infra.Data.csproj">
+      <Project>{69926120-006B-45AC-A45A-C2E43B6364C3}</Project>
+      <Name>Ecommerce.CtrlX.Infra.Data</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

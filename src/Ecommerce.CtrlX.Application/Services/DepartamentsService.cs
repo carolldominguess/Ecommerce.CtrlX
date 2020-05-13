@@ -20,32 +20,34 @@ namespace Ecommerce.CtrlX.Application.Services
         public DepartamentsViewModel Add(DepartamentsViewModel departaments)
         {
             _departamentsRepository.Add(Mapper.Map<Departaments>(departaments));
-
             return departaments;
         }
 
         public IEnumerable<DepartamentsViewModel> GetAll()
         {
-            throw new NotImplementedException();
+            return Mapper.Map<IEnumerable<DepartamentsViewModel>>(_departamentsRepository.GetAll());
         }
 
         public DepartamentsViewModel GetDepartamentsById(int id)
         {
-            throw new NotImplementedException();
+            return Mapper.Map<DepartamentsViewModel>(_departamentsRepository.GetDepartamentsById(id));
         }
 
         public void Remove(int id)
         {
-            throw new NotImplementedException();
+            _departamentsRepository.Remove(id);
         }
 
         public DepartamentsViewModel Update(DepartamentsViewModel departaments)
         {
-            throw new NotImplementedException();
+            var dep = Mapper.Map<Departaments>(departaments);
+
+            return Mapper.Map<DepartamentsViewModel>(_departamentsRepository.Update(dep));
         }
         public void Dispose()
         {
-            throw new NotImplementedException();
+            _departamentsRepository.Dispose();
+            GC.SuppressFinalize(this);
         }
     }
 }
