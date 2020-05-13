@@ -35,7 +35,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities\Categories.cs" />
+    <Compile Include="Entities\Customers.cs" />
     <Compile Include="Entities\Departaments.cs" />
+    <Compile Include="Entities\Products.cs" />
     <Compile Include="Interfaces\Repository\IDepartamentsRepository.cs" />
     <Compile Include="Interfaces\Repository\IRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
