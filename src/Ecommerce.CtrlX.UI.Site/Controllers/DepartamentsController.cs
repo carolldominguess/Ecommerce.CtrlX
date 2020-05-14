@@ -84,7 +84,6 @@ namespace Ecommerce.CtrlX.UI.Site.Controllers
         {
             if (ModelState.IsValid)
             {
-                departaments.DataAlteracao = DateTime.Now;
                 _departamentsService.Update(departaments);
                 _uow.Commit();
                 return RedirectToAction("Index");

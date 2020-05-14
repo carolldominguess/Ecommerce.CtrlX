@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace Ecommerce.CtrlX.Domain.Entities
+namespace Ecommerce.CtrlX.Application.ViewModels
 {
-    public class Categories
+    public class CategoriesViewModel
     {
         public int CategoriesId { get; set; }
         public string DescriptionCategory { get; set; }
