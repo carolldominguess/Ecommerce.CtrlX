@@ -54,9 +54,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Context\CtrlXContext.cs" />
+    <Compile Include="EntityConfig\CategoriesConfig.cs" />
     <Compile Include="EntityConfig\DepartamentsConfig.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\CategoriesRepository.cs" />
     <Compile Include="Repository\DepartamentsRepository.cs" />
     <Compile Include="Repository\Repository.cs" />
     <Compile Include="UoW\IUnitOfWork.cs" />
