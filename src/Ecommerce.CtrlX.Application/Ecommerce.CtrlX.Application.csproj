@@ -50,13 +50,16 @@
     <Compile Include="AutoMapper\ViewModelToDomainMappingProfile.cs" />
     <Compile Include="Interfaces\ICategoriesService.cs" />
     <Compile Include="Interfaces\IDepartamentsService.cs" />
+    <Compile Include="Interfaces\ISalesService.cs" />
     <Compile Include="Interfaces\IServiceBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\CategorieService.cs" />
     <Compile Include="Services\DepartamentsService.cs" />
+    <Compile Include="Services\SalesService.cs" />
     <Compile Include="Services\ServiceBase.cs" />
     <Compile Include="ViewModels\CategoriesViewModel.cs" />
     <Compile Include="ViewModels\DepartamentsViewModel.cs" />
+    <Compile Include="ViewModels\SalesViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Ecommerce.CtrlX.Domain\Ecommerce.CtrlX.Domain.csproj">

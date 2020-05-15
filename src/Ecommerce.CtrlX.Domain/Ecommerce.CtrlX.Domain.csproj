@@ -49,6 +49,7 @@
     <Compile Include="Interfaces\Repository\ICategoriesRepository.cs" />
     <Compile Include="Interfaces\Repository\IDepartamentsRepository.cs" />
     <Compile Include="Interfaces\Repository\IRepository.cs" />
+    <Compile Include="Interfaces\Repository\ISalesRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
