@@ -21,12 +21,7 @@ namespace Ecommerce.CtrlX.Infra.Data.Repository
             return SearchFirstOrDefault(x => x.SaleId == Id);
         }
 
-        public IEnumerable<Sales> ObterVendas(int Id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public override IEnumerable<Sales> GetAll()
+        public IEnumerable<Sales> ObterVendas()
         {
             var cn = Db.Database.Connection;
             var sql = @"SELECT * FROM CtrlX_Sales";

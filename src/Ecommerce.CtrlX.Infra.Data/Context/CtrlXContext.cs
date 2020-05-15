@@ -19,7 +19,7 @@ namespace Ecommerce.CtrlX.Infra.Data.Context
         public DbSet<OrdersDetails> OrdersDetails { get; set; }
         public DbSet<Products> Products { get; set; }
         public DbSet<Sales> Sales { get; set; }
-        public DbSet<SaleDetails> SaleDetails { get; set; }
+        public DbSet<SalesDetails> SaleDetails { get; set; }
         public DbSet<Users> Users { get; set; }
         #endregion
 

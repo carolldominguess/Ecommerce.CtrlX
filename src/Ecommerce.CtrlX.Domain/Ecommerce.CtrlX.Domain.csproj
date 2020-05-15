@@ -43,12 +43,13 @@
     <Compile Include="Entities\Orders.cs" />
     <Compile Include="Entities\OrdersDetails.cs" />
     <Compile Include="Entities\Products.cs" />
-    <Compile Include="Entities\SaleDetails.cs" />
+    <Compile Include="Entities\SalesDetails.cs" />
     <Compile Include="Entities\Sales.cs" />
     <Compile Include="Entities\Users.cs" />
     <Compile Include="Interfaces\Repository\ICategoriesRepository.cs" />
     <Compile Include="Interfaces\Repository\IDepartamentsRepository.cs" />
     <Compile Include="Interfaces\Repository\IRepository.cs" />
+    <Compile Include="Interfaces\Repository\ISalesDetailsRepository.cs" />
     <Compile Include="Interfaces\Repository\ISalesRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

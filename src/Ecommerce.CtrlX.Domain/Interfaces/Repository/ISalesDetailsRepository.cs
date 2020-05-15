@@ -7,9 +7,8 @@ using System.Threading.Tasks;
 
 namespace Ecommerce.CtrlX.Domain.Interfaces.Repository
 {
-    public interface ISalesRepository : IRepository<Sales>
+    public interface ISalesDetailsRepository : IRepository<SalesDetails>
     {
-        Sales GetSalesById(int Id);
-        IEnumerable<Sales> ObterVendas();
+        SalesDetails GetSalesDetailsById(int Id);
     }
 }

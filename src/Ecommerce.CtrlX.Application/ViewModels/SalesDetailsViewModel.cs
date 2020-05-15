@@ -1,13 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Ecommerce.CtrlX.Domain.Entities
+namespace Ecommerce.CtrlX.Application.ViewModels
 {
-    public class SaleDetails
+    public class SalesDetailsViewModel
     {
+        [Key]
         public int SaleDetailId { get; set; }
         public string Description { get; set; }
         public float? Price { get; set; }
@@ -15,6 +17,5 @@ namespace Ecommerce.CtrlX.Domain.Entities
         public int? Quantity { get; set; }
         //public int ProductId { get; set; }
         //public int SaleId { get; set; }
-
     }
 }

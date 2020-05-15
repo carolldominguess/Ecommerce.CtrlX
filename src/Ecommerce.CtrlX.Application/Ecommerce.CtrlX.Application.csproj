@@ -59,6 +59,7 @@
     <Compile Include="Services\ServiceBase.cs" />
     <Compile Include="ViewModels\CategoriesViewModel.cs" />
     <Compile Include="ViewModels\DepartamentsViewModel.cs" />
+    <Compile Include="ViewModels\SalesDetailsViewModel.cs" />
     <Compile Include="ViewModels\SalesViewModel.cs" />
   </ItemGroup>
   <ItemGroup>

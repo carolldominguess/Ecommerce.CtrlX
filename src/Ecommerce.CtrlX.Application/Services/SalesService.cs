@@ -26,9 +26,9 @@ namespace Ecommerce.CtrlX.Application.Services
             return sales;
         }
 
-        public IEnumerable<SalesViewModel> GetAll()
+        public IEnumerable<SalesViewModel> ObterVendas()
         {
-            return Mapper.Map<IEnumerable<SalesViewModel>>(_salesRepository.GetAll());
+            return Mapper.Map<IEnumerable<SalesViewModel>>(_salesRepository.ObterVendas());
         }
 
         public SalesViewModel GetSalesById(int id)

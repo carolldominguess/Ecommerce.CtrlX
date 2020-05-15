@@ -57,11 +57,13 @@
     <Compile Include="EntityConfig\CategoriesConfig.cs" />
     <Compile Include="EntityConfig\DepartamentsConfig.cs" />
     <Compile Include="EntityConfig\SalesConfig.cs" />
+    <Compile Include="EntityConfig\SalesDetailsConfig.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\CategoriesRepository.cs" />
     <Compile Include="Repository\DepartamentsRepository.cs" />
     <Compile Include="Repository\Repository.cs" />
+    <Compile Include="Repository\SalesDetailsRepository.cs" />
     <Compile Include="Repository\SalesRepository.cs" />
     <Compile Include="UoW\IUnitOfWork.cs" />
     <Compile Include="UoW\UnitOfWork.cs" />
