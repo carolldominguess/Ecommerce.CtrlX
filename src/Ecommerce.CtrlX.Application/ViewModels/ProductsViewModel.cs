@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Ecommerce.CtrlX.Domain.Entities
+﻿namespace Ecommerce.CtrlX.Application.ViewModels
 {
-    public class Products
+    public class ProductsViewModel
     {
         public int ProductsId { get; set; }
         public string Description { get; set; }
@@ -15,6 +9,5 @@ namespace Ecommerce.CtrlX.Domain.Entities
         public byte? Image { get; set; }
         public byte? Remarks { get; set; }
         public int CategoriesId { get; set; }
-        public virtual Categories Categories { get; set; }
     }
 }

@@ -39,6 +39,7 @@ namespace Ecommerce.CtrlX.Infra.Data.Context
             #region EntitiesConfig
             modelBuilder.Configurations.Add(new DepartamentsConfig());
             modelBuilder.Configurations.Add(new CategoriesConfig());
+            modelBuilder.Configurations.Add(new ProductsConfig());
             #endregion
 
 
