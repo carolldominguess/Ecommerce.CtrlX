@@ -10,7 +10,7 @@ namespace Ecommerce.CtrlX.Application.Interfaces
     public interface ISalesService : IDisposable
     {
         SalesViewModel Add(SalesViewModel sales);
-        SalesViewModel GetSalesById(int id);
+        SalesViewModel GetSaleById(int id);
         IEnumerable<SalesViewModel> ObterVendas();
         SalesViewModel Update(SalesViewModel sales);
     }

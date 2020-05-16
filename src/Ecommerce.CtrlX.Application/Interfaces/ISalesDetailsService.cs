@@ -12,6 +12,6 @@ namespace Ecommerce.CtrlX.Application.Interfaces
         SalesDetailsViewModel Add(SalesDetailsViewModel salesDetails);
         SalesDetailsViewModel Update(SalesDetailsViewModel salesDetails);
         SalesDetailsViewModel GetAll(SalesDetailsViewModel salesDetails);
-        IEnumerable<SalesDetailsViewModel> GetSalesDetailsById(int Id);
+        IEnumerable<SalesDetailsViewModel> GetSalesDetailsById(int id);
     }
 }

@@ -9,7 +9,7 @@ namespace Ecommerce.CtrlX.Domain.Interfaces.Repository
 {
     public interface ISalesRepository : IRepository<Sales>
     {
-        Sales GetSalesById(int Id);
+        Sales GetSaleById(int id);
         IEnumerable<Sales> ObterVendas();
     }
 }

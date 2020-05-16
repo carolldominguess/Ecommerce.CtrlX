@@ -31,9 +31,9 @@ namespace Ecommerce.CtrlX.Application.Services
             return Mapper.Map<SalesDetailsViewModel>(_salesDetailsRepository.GetAll());
         }
 
-        public IEnumerable<SalesDetailsViewModel> GetSalesDetailsById(int Id)
+        public IEnumerable<SalesDetailsViewModel> GetSalesDetailsById(int id)
         {
-            return Mapper.Map<IEnumerable<SalesDetailsViewModel>>(_salesDetailsRepository.GetSalesDetailsById(Id));
+            return Mapper.Map<IEnumerable<SalesDetailsViewModel>>(_salesDetailsRepository.GetSalesDetailsById(id));
         }
 
         public SalesDetailsViewModel Update(SalesDetailsViewModel salesDetails)

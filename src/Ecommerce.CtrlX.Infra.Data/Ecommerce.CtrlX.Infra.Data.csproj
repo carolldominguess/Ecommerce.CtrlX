@@ -56,6 +56,7 @@
     <Compile Include="Context\CtrlXContext.cs" />
     <Compile Include="EntityConfig\CategoriesConfig.cs" />
     <Compile Include="EntityConfig\DepartamentsConfig.cs" />
+    <Compile Include="EntityConfig\OrdersConfig.cs" />
     <Compile Include="EntityConfig\ProductsConfig.cs" />
     <Compile Include="EntityConfig\SalesConfig.cs" />
     <Compile Include="EntityConfig\SalesDetailsConfig.cs" />
@@ -63,6 +64,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\CategoriesRepository.cs" />
     <Compile Include="Repository\DepartamentsRepository.cs" />
+    <Compile Include="Repository\OrdersRepository.cs" />
     <Compile Include="Repository\ProductsRepository.cs" />
     <Compile Include="Repository\Repository.cs" />
     <Compile Include="Repository\SalesDetailsRepository.cs" />

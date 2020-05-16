@@ -16,9 +16,9 @@ namespace Ecommerce.CtrlX.Infra.Data.Repository
         {
         }
 
-        public SalesDetails GetSalesDetailsById(int Id)
+        public SalesDetails GetSalesDetailsById(int id)
         {
-            return SearchFirstOrDefault(s => s.SaleDetailId == Id);
+            return SearchFirstOrDefault(s => s.SaleDetailId == id);
         }
 
         public override IEnumerable<SalesDetails> GetAll()
