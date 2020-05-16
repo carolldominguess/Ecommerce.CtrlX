@@ -7,7 +7,7 @@ namespace Ecommerce.CtrlX.Infra.Data.EntityConfig
     {
         public ProductsConfig()
         {
-            HasKey(p => p.ProductId);
+            HasKey(p => p.ProductsId);
             Property(p => p.Description).IsOptional().HasMaxLength(150);
             Property(p => p.BarCode).IsOptional();
             Property(p => p.Price).IsOptional();
