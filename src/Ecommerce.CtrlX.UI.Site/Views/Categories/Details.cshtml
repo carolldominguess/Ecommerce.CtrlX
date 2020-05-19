@@ -1,0 +1,42 @@
+﻿@model Ecommerce.CtrlX.Application.ViewModels.CategoriesViewModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details Categories</h2>
+
+<div>
+    <h4>Categories</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DescriptionCategory)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DescriptionCategory)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataCadastro)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataCadastro)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ativo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ativo)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.CategoriesId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

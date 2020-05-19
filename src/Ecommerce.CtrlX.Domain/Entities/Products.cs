@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Ecommerce.CtrlX.Domain.Entities
 {
@@ -14,6 +10,8 @@ namespace Ecommerce.CtrlX.Domain.Entities
         public float? Price { get; set; }
         public byte? Image { get; set; }
         public byte? Remarks { get; set; }
+        public DateTime? DataCadastro { get; set; }
+        public bool Ativo { get; set; }
         public int CategoriesId { get; set; }
         public virtual Categories Categories { get; set; }
     }
