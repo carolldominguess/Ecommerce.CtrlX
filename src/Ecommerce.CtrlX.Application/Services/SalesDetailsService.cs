@@ -31,15 +31,15 @@ namespace Ecommerce.CtrlX.Application.Services
             return Mapper.Map<SalesDetailsViewModel>(_salesDetailsRepository.GetAll());
         }
 
-        public IEnumerable<SalesDetailsViewModel> GetSalesDetailsById(int id)
-        {
-            return Mapper.Map<IEnumerable<SalesDetailsViewModel>>(_salesDetailsRepository.GetSalesDetailsById(id));
-        }
-
         public SalesDetailsViewModel Update(SalesDetailsViewModel salesDetails)
         {
             var saleDetail = Mapper.Map<SalesDetails>(salesDetails);
             return Mapper.Map<SalesDetailsViewModel>(_salesDetailsRepository.Update(saleDetail));
+        }
+
+        public IEnumerable<SalesDetailsViewModel> GetSalesDetailsById(int id)
+        {
+            return Mapper.Map<IEnumerable<SalesDetailsViewModel>>(_salesDetailsRepository.GetSalesDetailsById(id));
         }
 
         public void Dispose()
