@@ -15,7 +15,7 @@ namespace Ecommerce.CtrlX.Infra.Data.Context
         public DbSet<Categories> Categories { get; set; }
         public DbSet<Customers> Customers { get; set; }
         public DbSet<Inventories> Inventories { get; set; }
-        public DbSet<Orders> Orders { get; set; }        
+        public DbSet<Orders> Orders { get; set; }
         public DbSet<OrdersDetails> OrdersDetails { get; set; }
         public DbSet<Products> Products { get; set; }
         public DbSet<Sales> Sales { get; set; }
@@ -40,6 +40,10 @@ namespace Ecommerce.CtrlX.Infra.Data.Context
             modelBuilder.Configurations.Add(new DepartamentsConfig());
             modelBuilder.Configurations.Add(new CategoriesConfig());
             modelBuilder.Configurations.Add(new ProductsConfig());
+            modelBuilder.Configurations.Add(new SalesConfig());
+            modelBuilder.Configurations.Add(new SalesDetailsConfig());
+            modelBuilder.Configurations.Add(new OrdersConfig());
+            modelBuilder.Configurations.Add(new OrdersDetailsConfig());
             #endregion
 
 

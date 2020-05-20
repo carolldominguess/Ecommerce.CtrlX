@@ -48,6 +48,7 @@
     <Compile Include="Entities\Users.cs" />
     <Compile Include="Interfaces\Repository\ICategoriesRepository.cs" />
     <Compile Include="Interfaces\Repository\IDepartamentsRepository.cs" />
+    <Compile Include="Interfaces\Repository\IOrdersDetailsRepository.cs" />
     <Compile Include="Interfaces\Repository\IOrdersRepository.cs" />
     <Compile Include="Interfaces\Repository\IProductsRepository.cs" />
     <Compile Include="Interfaces\Repository\IRepository.cs" />
