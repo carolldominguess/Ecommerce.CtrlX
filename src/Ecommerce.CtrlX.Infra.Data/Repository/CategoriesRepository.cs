@@ -32,7 +32,7 @@ namespace Ecommerce.CtrlX.Infra.Data.Repository
         public override IEnumerable<Categories> GetAll()
         {
             var cn = Db.Database.Connection;
-            var sql = @"SELECT * FROM CtrlX_Categories";
+            var sql = @"SELECT * FROM CtrlX_Categories c WHERE c.Ativo = 1";
             return cn.Query<Categories>(sql);
         }
 

@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Ecommerce.CtrlX.Domain.Entities
+﻿namespace Ecommerce.CtrlX.Domain.Entities
 {
     public class Users
     {
-        public int UserId { get; set; }
+        public int UsersId { get; set; }
         public string UserName { get; set; }
         public string Firstname { get; set; }
         public string LastName { get; set; }

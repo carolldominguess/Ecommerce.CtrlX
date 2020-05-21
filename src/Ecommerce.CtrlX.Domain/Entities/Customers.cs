@@ -8,7 +8,7 @@ namespace Ecommerce.CtrlX.Domain.Entities
 {
     public class Customers
     {
-        public int CustomerId { get; set; }
+        public int CustomersId { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Phone { get; set; }

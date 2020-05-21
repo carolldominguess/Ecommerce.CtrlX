@@ -1,24 +1,27 @@
 ﻿@model IEnumerable<Ecommerce.CtrlX.Application.ViewModels.CategoriesViewModel>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Categorias";
 }
 
-<h2>Index</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+<h2>@ViewBag.Title</h2>
+<br />
+<div class="pull-right">   
+    <a class="btn btn-primary btn-lg" href="@Url.Action("Create", "Categories")">Nova categoria</a>
+</div>
+<br />
+<br />
+<br />
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.DescriptionCategory)
+            Nome Categoria
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.DataCadastro)
+            Data Cadastro
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Ativo)
+            Ativo
         </th>
         <th></th>
     </tr>
@@ -35,9 +38,9 @@
             @Html.DisplayFor(modelItem => item.Ativo)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.CategoriesId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.CategoriesId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.CategoriesId })
+            @Html.ActionLink("Editar", "Edit", new { @class= "btn btn-primary", id=item.CategoriesId }) |
+            @Html.ActionLink("Detalhes", "Details", new { @class = "btn btn-info", id =item.CategoriesId }) |
+            @Html.ActionLink("Desativar", "Delete", new { @class = "btn btn-danger", id =item.CategoriesId })
         </td>
     </tr>
 }

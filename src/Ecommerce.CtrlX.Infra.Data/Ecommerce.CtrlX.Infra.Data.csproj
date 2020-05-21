@@ -55,12 +55,15 @@
   <ItemGroup>
     <Compile Include="Context\CtrlXContext.cs" />
     <Compile Include="EntityConfig\CategoriesConfig.cs" />
+    <Compile Include="EntityConfig\CustomersConfig.cs" />
     <Compile Include="EntityConfig\DepartamentsConfig.cs" />
+    <Compile Include="EntityConfig\InventoriesConfig.cs" />
     <Compile Include="EntityConfig\OrdersConfig.cs" />
     <Compile Include="EntityConfig\OrdersDetailsConfig.cs" />
     <Compile Include="EntityConfig\ProductsConfig.cs" />
     <Compile Include="EntityConfig\SalesConfig.cs" />
     <Compile Include="EntityConfig\SalesDetailsConfig.cs" />
+    <Compile Include="EntityConfig\UsersConfig.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\CategoriesRepository.cs" />

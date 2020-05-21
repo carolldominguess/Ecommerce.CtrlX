@@ -8,7 +8,6 @@ namespace Ecommerce.CtrlX.Application.AutoMapper
     {
         protected override void Configure()
         {
-            CreateMap<DepartamentsViewModel, Departaments>();
             CreateMap<CategoriesViewModel, Categories>();
             CreateMap<ProductsViewModel, Products>();
         }
