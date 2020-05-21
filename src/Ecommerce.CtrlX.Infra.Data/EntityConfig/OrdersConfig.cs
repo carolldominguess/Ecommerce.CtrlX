@@ -12,9 +12,13 @@ namespace Ecommerce.CtrlX.Infra.Data.EntityConfig
     {
         public OrdersConfig()
         {
-            HasKey(o => o.OrderId);
+            HasKey(o => o.OrdersId);
             Property(o => o.Date).IsOptional();
             Property(o => o.Remarks).IsOptional();
+            Property(o => o.Description).IsOptional();
+            Property(o => o.Price).IsOptional();
+            Property(o => o.TaxRate).IsOptional();
+            Property(o => o.Quantity).IsOptional();
 
             ToTable("CtrlX_Orders");
         }

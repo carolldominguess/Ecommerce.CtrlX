@@ -10,10 +10,12 @@ namespace Ecommerce.CtrlX.Application.ViewModels
     public class SalesViewModel
     {
         [Key]
-        public int SaleId { get; set; }
+        public int SalesId { get; set; }
         public DateTime? Date { get; set; }
         public byte? Remarks { get; set; }
-        //public int OrderId { get; set; }
-        //public int Customerid { get; set; }
+        public string Description { get; set; }
+        public float? Price { get; set; }
+        public byte? TaxRate { get; set; }
+        public int? Quantity { get; set; }
     }
 }
