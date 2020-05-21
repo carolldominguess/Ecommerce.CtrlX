@@ -38,7 +38,6 @@
     <Compile Include="Entities\AspNetUsers.cs" />
     <Compile Include="Entities\Categories.cs" />
     <Compile Include="Entities\Customers.cs" />
-    <Compile Include="Entities\Departaments.cs" />
     <Compile Include="Entities\Inventories.cs" />
     <Compile Include="Entities\Orders.cs" />
     <Compile Include="Entities\OrdersDetails.cs" />
@@ -47,7 +46,6 @@
     <Compile Include="Entities\Sales.cs" />
     <Compile Include="Entities\Users.cs" />
     <Compile Include="Interfaces\Repository\ICategoriesRepository.cs" />
-    <Compile Include="Interfaces\Repository\IDepartamentsRepository.cs" />
     <Compile Include="Interfaces\Repository\IOrdersDetailsRepository.cs" />
     <Compile Include="Interfaces\Repository\IOrdersRepository.cs" />
     <Compile Include="Interfaces\Repository\IProductsRepository.cs" />
