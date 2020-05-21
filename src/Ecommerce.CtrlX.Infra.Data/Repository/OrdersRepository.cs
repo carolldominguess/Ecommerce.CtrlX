@@ -18,7 +18,7 @@ namespace Ecommerce.CtrlX.Infra.Data.Repository
 
         public Orders GetOrderById(int id)
         {
-            return SearchFirstOrDefault(x => x.OrderId == id);
+            return SearchFirstOrDefault(x => x.OrdersId == id);
         }
 
         public IEnumerable<Orders> ObterPedidos()

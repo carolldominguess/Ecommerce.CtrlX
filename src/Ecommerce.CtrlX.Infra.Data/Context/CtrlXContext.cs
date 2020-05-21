@@ -11,15 +11,12 @@ namespace Ecommerce.CtrlX.Infra.Data.Context
             : base("DefaultConnection") { }
 
         #region EntitiesCtrlX
-        public DbSet<Departaments> Departments { get; set; }
         public DbSet<Categories> Categories { get; set; }
         public DbSet<Customers> Customers { get; set; }
         public DbSet<Inventories> Inventories { get; set; }
         public DbSet<Orders> Orders { get; set; }
-        public DbSet<OrdersDetails> OrdersDetails { get; set; }
         public DbSet<Products> Products { get; set; }
         public DbSet<Sales> Sales { get; set; }
-        public DbSet<SalesDetails> SaleDetails { get; set; }
         public DbSet<Users> Users { get; set; }
         #endregion
 
@@ -37,13 +34,10 @@ namespace Ecommerce.CtrlX.Infra.Data.Context
                 .Configure(p => p.HasColumnType("varchar"));
 
             #region EntitiesConfig
-            modelBuilder.Configurations.Add(new DepartamentsConfig());
             modelBuilder.Configurations.Add(new CategoriesConfig());
             modelBuilder.Configurations.Add(new ProductsConfig());
             modelBuilder.Configurations.Add(new SalesConfig());
-            modelBuilder.Configurations.Add(new SalesDetailsConfig());
             modelBuilder.Configurations.Add(new OrdersConfig());
-            modelBuilder.Configurations.Add(new OrdersDetailsConfig());
             #endregion
 
 

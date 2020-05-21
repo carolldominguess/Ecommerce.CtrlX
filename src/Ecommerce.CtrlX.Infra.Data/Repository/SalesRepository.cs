@@ -18,7 +18,7 @@ namespace Ecommerce.CtrlX.Infra.Data.Repository
 
         public Sales GetSaleById(int id)
         {
-            return SearchFirstOrDefault(x => x.SaleId == id);
+            return SearchFirstOrDefault(x => x.SalesId == id);
         }
 
         public IEnumerable<Sales> ObterVendas()
