@@ -282,6 +282,10 @@
       <Project>{FFE549CD-F9EE-4DA6-9AE9-918C30535287}</Project>
       <Name>Ecommerce.CtrlX.Application</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Ecommerce.CtrlX.Cross.Cutting.MVCFilters\Ecommerce.CtrlX.Cross.Cutting.MVCFilters.csproj">
+      <Project>{F7153516-4CE1-4355-A3BD-536D440C49E1}</Project>
+      <Name>Ecommerce.CtrlX.Cross.Cutting.MVCFilters</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Ecommerce.CtrlX.CrossCutting.IoC\Ecommerce.CtrlX.CrossCutting.IoC.csproj">
       <Project>{72bbf9ed-c072-4612-b734-866bd3712bd0}</Project>
       <Name>Ecommerce.CtrlX.CrossCutting.IoC</Name>
