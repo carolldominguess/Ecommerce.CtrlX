@@ -5,6 +5,7 @@ using System;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Web;
 using System.Web.Mvc;
 
 namespace Ecommerce.CtrlX.UI.Site.Controllers
@@ -56,20 +57,22 @@ namespace Ecommerce.CtrlX.UI.Site.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(ProductsViewModel products)
         {
-            var imageTypes = new string[]{
-                    "image/gif",
-                    "image/jpeg",
-                    "image/pjpeg",
-                    "image/png"
-                };
-            if (products.ImageUpload == null || products.ImageUpload.ContentLength == 0)
-            {
-                ModelState.AddModelError("ImageUpload", "Este campo é obrigatório");
-            }
-            else if (!imageTypes.Contains(products.ImageUpload.ContentType))
-            {
-                ModelState.AddModelError("ImageUpload", "Escolha uma imagem GIF, JPG ou PNG.");
-            }
+            //var imageTypes = new string[]{
+            //        "image/gif",
+            //        "image/jpeg",
+            //        "image/pjpeg",
+            //        "image/png"
+            //    };
+            //if (products.ImageUpload == null || products.ImageUpload.ContentLength == 0)
+            //{
+            //    ModelState.AddModelError("ImageUpload", "Este campo é obrigatório");
+            //}
+            //else if (!imageTypes.Contains(products.ImageUpload.ContentType))
+            //{
+            //    ModelState.AddModelError("ImageUpload", "Escolha uma imagem GIF, JPG ou PNG.");
+            //}
+
+
             if (ModelState.IsValid)
             {
                 var cat = _categoriesService.GetCategoriesById(products.CategoriesId);
@@ -77,8 +80,18 @@ namespace Ecommerce.CtrlX.UI.Site.Controllers
                 products.DataCadastro = DateTime.Now;
                 products.Ativo = true;
 
-                using (var binaryReader = new BinaryReader(products.ImageUpload.InputStream))
-                    products.Image = binaryReader.ReadBytes(products.ImageUpload.ContentLength);
+
+                byte[] arrayImagem = null;
+                using (MemoryStream memoryStream = new MemoryStream())
+                {
+                    products.ImageUpload.InputStream.CopyTo(memoryStream);
+                    arrayImagem = memoryStream.ToArray();
+                }
+
+                products.Image = arrayImagem;
+
+                //using (var binaryReader = new BinaryReader(products.ImageUpload.InputStream))
+                //    products.Image = binaryReader.ReadBytes(products.ImageUpload.ContentLength);
                 _productsService.Add(products);
                 _uow.Commit();
                 return RedirectToAction("Index");

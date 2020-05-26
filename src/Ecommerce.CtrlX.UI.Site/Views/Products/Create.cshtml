@@ -7,7 +7,7 @@
 <h2>Incluir</h2>
 
 
-@using (Html.BeginForm())
+@using (Html.BeginForm("Create", "Products", FormMethod.Post, new { id = "formProducts", @class = "form-horizontal form-label-left", enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
 

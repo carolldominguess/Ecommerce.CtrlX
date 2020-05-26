@@ -1,7 +1,9 @@
 ﻿using Ecommerce.CtrlX.Domain.Entities;
 using Ecommerce.CtrlX.Infra.Data.EntityConfig;
+using System;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
+using System.Linq;
 
 namespace Ecommerce.CtrlX.Infra.Data.Context
 {
@@ -42,6 +44,22 @@ namespace Ecommerce.CtrlX.Infra.Data.Context
 
 
             base.OnModelCreating(modelBuilder);
+        }
+
+        public override int SaveChanges()
+        {
+            foreach (var entry in ChangeTracker.Entries().Where(entry => entry.Entity.GetType().GetProperty("RegistrationDate") != null))
+            {
+                if (entry.State == EntityState.Added)
+                {
+                    entry.Property("RegistrationDate").CurrentValue = DateTime.Now;
+                }
+                if (entry.State == EntityState.Modified)
+                {
+                    entry.Property("RegistrationDate").IsModified = false;
+                }
+            }
+            return base.SaveChanges();
         }
     }
 }
