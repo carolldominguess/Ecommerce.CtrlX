@@ -1,4 +1,5 @@
-﻿@model IEnumerable<Ecommerce.CtrlX.Application.ViewModels.CategoriesViewModel>
+﻿@using Ecommerce.CtrlX.UI.Site.Helpers
+@model IEnumerable<Ecommerce.CtrlX.Application.ViewModels.CategoriesViewModel>
 
 @{
     ViewBag.Title = "Categorias";
@@ -6,9 +7,13 @@
 
 <h2>@ViewBag.Title</h2>
 <br />
-<div class="pull-right">   
-    <a class="btn btn-primary btn-lg" href="@Url.Action("Create", "Categories")">Nova categoria</a>
-</div>
+@{ if (this.IfClaim("PermissoesCategories", "CI"))
+    {
+        <div class="pull-right">
+            <a class="btn btn-primary btn-lg" href="@Url.Action("Create", "Categories")">Nova categoria</a>
+        </div>
+    }
+}
 <br />
 <br />
 <br />
@@ -26,23 +31,24 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.DescriptionCategory)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DataCadastro)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Ativo)
-        </td>
-        <td>
-            @Html.ActionLink("Editar", "Edit", new { @class= "btn btn-primary", id=item.CategoriesId }) |
-            @Html.ActionLink("Detalhes", "Details", new { @class = "btn btn-info", id =item.CategoriesId }) |
-            @Html.ActionLink("Desativar", "Delete", new { @class = "btn btn-danger", id =item.CategoriesId })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DescriptionCategory)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataCadastro)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ativo)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { @class = "btn btn-primary", id = item.CategoriesId }).IfClaimHelper("PermissoesCategories", "CE") |
+                @Html.ActionLink("Detalhes", "Details", new { @class = "btn btn-info", id = item.CategoriesId })@*.IfClaimHelper("PermissoesCategories", "CD")*@ |
+                @Html.ActionLink("Desativar", "Delete", new { @class = "btn btn-danger", id = item.CategoriesId }).IfClaimHelper("PermissoesCategories", "CX")
+            </td>
+        </tr>
+    }
 
 </table>

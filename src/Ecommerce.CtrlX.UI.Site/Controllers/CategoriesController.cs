@@ -10,7 +10,7 @@ namespace Ecommerce.CtrlX.UI.Site.Controllers
 {
     // PermissoesCategories = CV,CD,CI,CE,CX
 
-    [Authorize]
+    //[Authorize]
     public class CategoriesController : Controller
     {
         private readonly ICategoriesService _categoriesService;
@@ -23,14 +23,14 @@ namespace Ecommerce.CtrlX.UI.Site.Controllers
         }
 
         // GET: Categories
-        //[ClaimsAuthorizeAttribute("PermissoesCategories", "CV")]
+        [ClaimsAuthorizeAttribute("PermissoesCategories", "CV")]
         public ActionResult Index()
         {
             return View(_categoriesService.GetAll());
         }
 
         // GET: Categories/Details/5
-        //[ClaimsAuthorizeAttribute("PermissoesCategories", "CD")]
+        [ClaimsAuthorizeAttribute("PermissoesCategories", "CD")]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -47,7 +47,7 @@ namespace Ecommerce.CtrlX.UI.Site.Controllers
 
         // GET: Categories/Create
         [HttpGet]
-        //[ClaimsAuthorizeAttribute("PermissoesCategories", "CI")]
+        [ClaimsAuthorizeAttribute("PermissoesCategories", "CI")]
         public ActionResult Create()
         {
             return View();
@@ -56,7 +56,7 @@ namespace Ecommerce.CtrlX.UI.Site.Controllers
         // POST: Categories/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        //[ClaimsAuthorizeAttribute("PermissoesCategories", "CI")]
+        [ClaimsAuthorizeAttribute("PermissoesCategories", "CI")]
         public ActionResult Create(CategoriesViewModel categories)
         {
             if (ModelState.IsValid)
@@ -73,7 +73,7 @@ namespace Ecommerce.CtrlX.UI.Site.Controllers
 
         // GET: Categories/Edit/5
         [HttpGet]
-        //[ClaimsAuthorizeAttribute("PermissoesCategories", "CE")]
+        [ClaimsAuthorizeAttribute("PermissoesCategories", "CE")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -91,7 +91,7 @@ namespace Ecommerce.CtrlX.UI.Site.Controllers
         // POST: Categories/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        //[ClaimsAuthorizeAttribute("PermissoesCategories", "CE")]
+        [ClaimsAuthorizeAttribute("PermissoesCategories", "CE")]
         public ActionResult Edit(CategoriesViewModel categories)
         {
             if (ModelState.IsValid)
@@ -105,7 +105,7 @@ namespace Ecommerce.CtrlX.UI.Site.Controllers
 
         // GET: Categories/Delete/5
         [HttpGet]
-        //[ClaimsAuthorizeAttribute("PermissoesCategories", "CX")]
+        [ClaimsAuthorizeAttribute("PermissoesCategories", "CX")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -123,7 +123,7 @@ namespace Ecommerce.CtrlX.UI.Site.Controllers
         // POST: Categories/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        //[ClaimsAuthorizeAttribute("PermissoesCategories", "CX")]
+        [ClaimsAuthorizeAttribute("PermissoesCategories", "CX")]
         public ActionResult DeleteConfirmed(int id)
         {
             _categoriesService.Remove(id);
