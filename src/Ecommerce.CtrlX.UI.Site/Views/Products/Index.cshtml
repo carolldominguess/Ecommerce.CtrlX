@@ -1,75 +1,79 @@
 ﻿@model IEnumerable<Ecommerce.CtrlX.Application.ViewModels.ProductsViewModel>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Produtos";
 }
 
-<h2>Index</h2>
+<h2>@ViewBag.Title</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Incluir novo produto", "Create")
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Description)
+            <label>Categoria</label>
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.BarCode)
+            <label>Descrição</label>
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Price)
+            <label>Código de barras</label>
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Image)
+            <label>Preço</label>
+        </th>
+        @*<th>
+                @Html.DisplayNameFor(model => model.Image)
+            </th>*@
+        <th>
+            <label>Observações</label>
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Remarks)
+            <label>Data cadastro</label>
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DataCadastro)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Ativo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CategoriesId)
-        </th>
+        @*<th>
+                @Html.DisplayNameFor(model => model.Ativo)
+            </th>*@
         <th></th>
     </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Description)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.BarCode)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Price)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Image)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Remarks)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DataCadastro)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Ativo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CategoriesId)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ProductsId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ProductsId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ProductsId })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        if (item.Ativo != false)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NameCategory)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BarCode)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                @*<td>
+                        @Html.DisplayFor(modelItem => item.Image)
+                    </td>*@
+                <td>
+                    @Html.DisplayFor(modelItem => item.Remarks)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DataCadastro)
+                </td>
+                @*<td>
+                        @Html.DisplayFor(modelItem => item.Ativo)
+                    </td>*@
+                <td>
+                    @Html.ActionLink("Editar", "Edit", new { id = item.ProductsId }) |
+                    @Html.ActionLink("Detalhes", "Details", new { id = item.ProductsId }) |
+                    @Html.ActionLink("Deletar", "Delete", new { id = item.ProductsId }) |
+                    @Html.ActionLink("Comprar", "", new { id = item.ProductsId })
+                </td>
+            </tr>
+        }
+    }
 
 </table>

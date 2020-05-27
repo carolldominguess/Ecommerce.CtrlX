@@ -35,6 +35,9 @@ namespace Ecommerce.CtrlX.Infra.Data.Context
             modelBuilder.Properties<string>()
                 .Configure(p => p.HasColumnType("varchar"));
 
+            modelBuilder.Properties<string>()
+                .Configure(p => p.HasMaxLength(100));
+
             #region EntitiesConfig
             modelBuilder.Configurations.Add(new CategoriesConfig());
             modelBuilder.Configurations.Add(new ProductsConfig());

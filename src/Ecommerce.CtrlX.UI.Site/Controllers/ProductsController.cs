@@ -79,19 +79,21 @@ namespace Ecommerce.CtrlX.UI.Site.Controllers
                 products.CategoriesId = cat.CategoriesId;
                 products.DataCadastro = DateTime.Now;
                 products.Ativo = true;
+                products.NameCategory = cat.DescriptionCategory;
 
+                //byte[] arrayImagem = null;
+                //using (MemoryStream memoryStream = new MemoryStream())
+                //{
+                //    products.ImageUpload.InputStream.CopyTo(memoryStream);
+                //    arrayImagem = memoryStream.ToArray();
+                //}
 
-                byte[] arrayImagem = null;
-                using (MemoryStream memoryStream = new MemoryStream())
-                {
-                    products.ImageUpload.InputStream.CopyTo(memoryStream);
-                    arrayImagem = memoryStream.ToArray();
-                }
-
-                products.Image = arrayImagem;
+                //products.Image = arrayImagem;
 
                 //using (var binaryReader = new BinaryReader(products.ImageUpload.InputStream))
                 //    products.Image = binaryReader.ReadBytes(products.ImageUpload.ContentLength);
+
+
                 _productsService.Add(products);
                 _uow.Commit();
                 return RedirectToAction("Index");
@@ -122,6 +124,7 @@ namespace Ecommerce.CtrlX.UI.Site.Controllers
         {
             if (ModelState.IsValid)
             {
+                products.DataCadastro = DateTime.Now;
                 _productsService.Update(products);
                 _uow.Commit();
                 return RedirectToAction("Index");
