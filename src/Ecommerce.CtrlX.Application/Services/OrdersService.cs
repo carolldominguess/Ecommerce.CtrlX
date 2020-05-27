@@ -36,7 +36,7 @@ namespace Ecommerce.CtrlX.Application.Services
             return Mapper.Map<IEnumerable<OrdersViewModel>>(_ordersRepository.ObterPedidos());
         }
 
-        public OrdersViewModel update(OrdersViewModel orders)
+        public OrdersViewModel Update(OrdersViewModel orders)
         {
             var order = Mapper.Map<Orders>(orders);
             return Mapper.Map<OrdersViewModel>(_ordersRepository.Update(order));

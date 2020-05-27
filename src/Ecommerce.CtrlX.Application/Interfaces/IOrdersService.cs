@@ -11,7 +11,7 @@ namespace Ecommerce.CtrlX.Application.Interfaces
     {
         OrdersViewModel Add(OrdersViewModel orders);
         OrdersViewModel GetOrderById(int id);
-        OrdersViewModel update(OrdersViewModel orders);
+        OrdersViewModel Update(OrdersViewModel orders);
         IEnumerable<OrdersViewModel> ObterPedidos();
     }
 }
