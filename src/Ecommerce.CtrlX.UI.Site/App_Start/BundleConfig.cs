@@ -25,6 +25,10 @@ namespace Ecommerce.CtrlX.UI.Site
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
+
+            bundles.Add(new ScriptBundle("~/bundles/products").Include(
+                      "~/Scripts/jquery.mask.js",
+                      "~/Scripts/Forms/products.js"));
         }
     }
 }

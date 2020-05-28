@@ -18,7 +18,7 @@
             <label>Descrição</label>
         </th>
         <th>
-            <label>Código de barras</label>
+            <label>Código do produto</label>
         </th>
         <th>
             <label>Preço</label>
@@ -69,7 +69,7 @@
                 <td>
                     @Html.ActionLink("Editar", "Edit", new { id = item.ProductsId }) |
                     @Html.ActionLink("Detalhes", "Details", new { id = item.ProductsId }) |
-                    @Html.ActionLink("Deletar", "Delete", new { id = item.ProductsId }) |
+                    @Html.ActionLink("Desativar", "Delete", new { id = item.ProductsId }) |
                     @Html.ActionLink("Comprar", "", new { id = item.ProductsId })
                 </td>
             </tr>

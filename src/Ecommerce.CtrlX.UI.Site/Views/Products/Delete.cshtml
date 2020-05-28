@@ -1,34 +1,32 @@
 ﻿@model Ecommerce.CtrlX.Application.ViewModels.ProductsViewModel
 
 @{
-    ViewBag.Title = "Delete";
+    ViewBag.Title = "Desativar";
 }
 
-<h2>Delete</h2>
+<h2>Desativar produto</h2>
 
-<h3>Are you sure you want to delete this?</h3>
+<h3>Desativar o produto?</h3>
 <div>
-    <h4>ProductsViewModel</h4>
+    <h4>Produtos</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Description)
+            Descrição
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.Description)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.BarCode)
+            Código do produto
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.BarCode)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Price)
+            Preço
         </dt>
 
         <dd>
@@ -36,23 +34,22 @@
         </dd>
 
         @*<dt>
-            @Html.DisplayNameFor(model => model.Image)
-        </dt>
+                @Html.DisplayNameFor(model => model.Image)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Image)
-        </dd>*@
+            <dd>
+                @Html.DisplayFor(model => model.Image)
+            </dd>*@
 
         <dt>
-            @Html.DisplayNameFor(model => model.Remarks)
+            Observações
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.Remarks)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.DataCadastro)
+            Data cadastro
         </dt>
 
         <dd>
@@ -60,7 +57,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Ativo)
+            Ativo
         </dt>
 
         <dd>
@@ -68,21 +65,22 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.CategoriesId)
+            Categoria
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.CategoriesId)
+            @Html.DisplayFor(model => model.NameCategory)
         </dd>
 
     </dl>
 
-    @using (Html.BeginForm()) {
+    @using (Html.BeginForm())
+    {
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+            <input type="submit" value="Desativar" class="btn btn-default" /> |
+            @Html.ActionLink("Voltar", "Index")
         </div>
     }
 </div>

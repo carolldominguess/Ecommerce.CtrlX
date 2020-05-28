@@ -109,6 +109,7 @@ namespace Ecommerce.CtrlX.UI.Site.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+            ViewBag.Categorias = _categoriesService.GetAll();
             var products = _productsService.GetProductsById(id.Value);
             if (products == null)
             {
@@ -124,7 +125,11 @@ namespace Ecommerce.CtrlX.UI.Site.Controllers
         {
             if (ModelState.IsValid)
             {
+                var cat = _categoriesService.GetCategoriesById(products.CategoriesId);
+                products.CategoriesId = cat.CategoriesId;                 
+                products.NameCategory = cat.DescriptionCategory;
                 products.DataCadastro = DateTime.Now;
+                products.Ativo = true;
                 _productsService.Update(products);
                 _uow.Commit();
                 return RedirectToAction("Index");

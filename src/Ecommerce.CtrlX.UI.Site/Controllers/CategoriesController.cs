@@ -10,7 +10,7 @@ namespace Ecommerce.CtrlX.UI.Site.Controllers
 {
     // PermissoesCategories = CV,CD,CI,CE,CX
 
-    //[Authorize]
+    [Authorize]
     public class CategoriesController : Controller
     {
         private readonly ICategoriesService _categoriesService;

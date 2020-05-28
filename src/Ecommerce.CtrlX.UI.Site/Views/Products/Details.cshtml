@@ -1,33 +1,31 @@
 ﻿@model Ecommerce.CtrlX.Application.ViewModels.ProductsViewModel
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Detalhes";
 }
 
-<h2>Details</h2>
+<h2>Detalhes produto</h2>
 
 <div>
     <h4>ProductsViewModel</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Description)
+            Descrição
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.Description)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.BarCode)
+            Código do produto
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.BarCode)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Price)
+            Preço
         </dt>
 
         <dd>
@@ -43,15 +41,14 @@
         </dd>*@
 
         <dt>
-            @Html.DisplayNameFor(model => model.Remarks)
+            Observações
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.Remarks)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.DataCadastro)
+            Data cadastro
         </dt>
 
         <dd>
@@ -59,7 +56,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Ativo)
+            Ativo
         </dt>
 
         <dd>
@@ -67,7 +64,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.NameCategory)
+            Categoria
         </dt>
 
         <dd>
@@ -77,6 +74,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ProductsId }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Editar", "Edit", new { id = Model.ProductsId }) |
+    @Html.ActionLink("Voltar", "Index")
 </p>

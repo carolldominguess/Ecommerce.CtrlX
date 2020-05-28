@@ -8,9 +8,10 @@ namespace Ecommerce.CtrlX.Application.ViewModels
     {
         [Key]
         public int ProductsId { get; set; }
+        [Required]
         public string Description { get; set; }
-        [Range(0,999, ErrorMessage ="O limite máximo é de 3 caracteres")]
-        public int? BarCode { get; set; }
+        [MaxLength(30, ErrorMessage ="O limite máximo é de 20 numeros")]
+        public string BarCode { get; set; }
         public float? Price { get; set; }
        // public byte[] Image { get; set; }
         //[Required]

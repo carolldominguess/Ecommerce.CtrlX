@@ -7,7 +7,7 @@ namespace Ecommerce.CtrlX.Domain.Entities
     {
         public int ProductsId { get; set; }
         public string Description { get; set; }
-        public int? BarCode { get; set; }
+        public string BarCode { get; set; }
         public float? Price { get; set; }
         //public byte[] Image { get; set; }
         public string Remarks { get; set; }

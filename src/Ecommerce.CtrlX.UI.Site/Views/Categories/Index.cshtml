@@ -45,7 +45,7 @@
             </td>
             <td>
                 @Html.ActionLink("Editar", "Edit", new { @class = "btn btn-primary", id = item.CategoriesId }).IfClaimHelper("PermissoesCategories", "CE") |
-                @Html.ActionLink("Detalhes", "Details", new { @class = "btn btn-info", id = item.CategoriesId })@*.IfClaimHelper("PermissoesCategories", "CD")*@ |
+                @Html.ActionLink("Detalhes", "Details", new { @class = "btn btn-info", id = item.CategoriesId }).IfClaimHelper("PermissoesCategories", "CD") |
                 @Html.ActionLink("Desativar", "Delete", new { @class = "btn btn-danger", id = item.CategoriesId }).IfClaimHelper("PermissoesCategories", "CX")
             </td>
         </tr>
