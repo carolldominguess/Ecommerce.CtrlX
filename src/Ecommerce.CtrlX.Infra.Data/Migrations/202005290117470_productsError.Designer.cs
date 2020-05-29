@@ -7,18 +7,18 @@ namespace Ecommerce.CtrlX.Infra.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class oorders : IMigrationMetadata
+    public sealed partial class productsError : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(oorders));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(productsError));
         
         string IMigrationMetadata.Id
         {
-            get { return "202005262356525_oorders"; }
+            get { return "202005290117470_productsError"; }
         }
         
         string IMigrationMetadata.Source
         {
-            get { return Resources.GetString("Source"); }
+            get { return null; }
         }
         
         string IMigrationMetadata.Target

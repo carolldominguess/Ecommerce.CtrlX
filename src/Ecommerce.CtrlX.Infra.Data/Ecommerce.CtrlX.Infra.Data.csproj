@@ -62,9 +62,9 @@
     <Compile Include="EntityConfig\ProductsConfig.cs" />
     <Compile Include="EntityConfig\SalesConfig.cs" />
     <Compile Include="EntityConfig\UsersConfig.cs" />
-    <Compile Include="Migrations\202005262356525_oorders.cs" />
-    <Compile Include="Migrations\202005262356525_oorders.Designer.cs">
-      <DependentUpon>202005262356525_oorders.cs</DependentUpon>
+    <Compile Include="Migrations\202005290117470_productsError.cs" />
+    <Compile Include="Migrations\202005290117470_productsError.Designer.cs">
+      <DependentUpon>202005290117470_productsError.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -87,8 +87,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202005262356525_oorders.resx">
-      <DependentUpon>202005262356525_oorders.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202005290117470_productsError.resx">
+      <DependentUpon>202005290117470_productsError.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
