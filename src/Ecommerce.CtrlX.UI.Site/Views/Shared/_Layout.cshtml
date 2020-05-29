@@ -3,8 +3,10 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @*<meta http-equiv="X-UA-Compatible" content="IE=edge">*@
     <title>@ViewBag.Title - CtrlX</title>
     @Styles.Render("~/Content/css")
+    @*@Styles.Render("~/Content/TemmplateCss")*@
     @Scripts.Render("~/bundles/modernizr")
 
 </head>
@@ -37,9 +39,11 @@
             <p>&copy; @DateTime.Now.Year - CtrlX Eletronics</p>
         </footer>
     </div>
-
+    
+    @*@Scripts.Render("~/bundles/TemmplateJs")*@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
+
     @RenderSection("scripts", required: false)
 </body>
 </html>
