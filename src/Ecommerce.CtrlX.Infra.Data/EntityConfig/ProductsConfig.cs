@@ -10,10 +10,10 @@ namespace Ecommerce.CtrlX.Infra.Data.EntityConfig
             HasKey(p => p.ProductsId);
             Property(p => p.Description).IsOptional().HasMaxLength(150);
             Property(p => p.BarCode).IsOptional().HasMaxLength(150);
-            Property(p => p.Price).IsOptional();
+            Property(p => p.Price).IsOptional().HasMaxLength(20);
             //Property(p => p.Image).IsOptional().HasMaxLength(1000);
-            Property(p => p.Remarks).IsOptional().HasMaxLength(150);
-            Property(p => p.NameCategory).IsOptional().HasMaxLength(150);
+            Property(p => p.Remarks).IsOptional().HasMaxLength(300);
+            Property(p => p.NameCategory).IsOptional().HasMaxLength(100);
 
             ToTable("CtrlX_Products");
         }

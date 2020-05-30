@@ -3,6 +3,7 @@ using Ecommerce.CtrlX.Infra.Data.EntityConfig;
 using System;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
+using System.Data.Entity.Validation;
 using System.Linq;
 
 namespace Ecommerce.CtrlX.Infra.Data.Context
@@ -50,19 +51,37 @@ namespace Ecommerce.CtrlX.Infra.Data.Context
         }
 
         public override int SaveChanges()
-        {
-            foreach (var entry in ChangeTracker.Entries().Where(entry => entry.Entity.GetType().GetProperty("RegistrationDate") != null))
+        {          
+
+            try
             {
-                if (entry.State == EntityState.Added)
+                foreach (var entry in ChangeTracker.Entries().Where(entry => entry.Entity.GetType().GetProperty("RegistrationDate") != null))
                 {
-                    entry.Property("RegistrationDate").CurrentValue = DateTime.Now;
+                    if (entry.State == EntityState.Added)
+                    {
+                        entry.Property("RegistrationDate").CurrentValue = DateTime.Now;
+                    }
+                    if (entry.State == EntityState.Modified)
+                    {
+                        entry.Property("RegistrationDate").IsModified = false;
+                    }
                 }
-                if (entry.State == EntityState.Modified)
-                {
-                    entry.Property("RegistrationDate").IsModified = false;
-                }
+                return base.SaveChanges();
             }
-            return base.SaveChanges();
+            catch (DbEntityValidationException e)
+            {
+                foreach (var eve in e.EntityValidationErrors)
+                {
+                    Console.WriteLine("Entidade do tipo \"{0}\" no estado \"{1}\" tem os seguintes erros de validação:",
+                        eve.Entry.Entity.GetType().Name, eve.Entry.State);
+                    foreach (var ve in eve.ValidationErrors)
+                    {
+                        Console.WriteLine("- Property: \"{0}\", Erro: \"{1}\"",
+                            ve.PropertyName, ve.ErrorMessage);
+                    }
+                }
+                throw;
+            }
         }
     }
 }

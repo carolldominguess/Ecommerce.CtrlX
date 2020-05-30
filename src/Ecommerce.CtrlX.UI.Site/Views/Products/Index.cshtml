@@ -9,7 +9,7 @@
 <p>
     @Html.ActionLink("Incluir novo produto", "Create")
 </p>
-<table class="table">
+<table class="table table-responsive">
     <tr>
         <th>
             <label>Categoria</label>
@@ -43,7 +43,7 @@
         {
             <tr>
                 <td>
-                    @*@Html.DisplayFor(modelItem => item.NameCategory)*@
+                    @Html.DisplayFor(modelItem => item.NameCategory)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Description)

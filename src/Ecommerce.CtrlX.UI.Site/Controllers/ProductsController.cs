@@ -72,7 +72,6 @@ namespace Ecommerce.CtrlX.UI.Site.Controllers
             //    ModelState.AddModelError("ImageUpload", "Escolha uma imagem GIF, JPG ou PNG.");
             //}
 
-
             if (ModelState.IsValid)
             {
                 var cat = _categoriesService.GetCategoriesById(products.CategoriesId);
@@ -100,6 +99,7 @@ namespace Ecommerce.CtrlX.UI.Site.Controllers
             }
 
             return View(products);
+
         }
 
         // GET: Products/Edit/5
@@ -126,7 +126,7 @@ namespace Ecommerce.CtrlX.UI.Site.Controllers
             if (ModelState.IsValid)
             {
                 var cat = _categoriesService.GetCategoriesById(products.CategoriesId);
-                products.CategoriesId = cat.CategoriesId;                 
+                products.CategoriesId = cat.CategoriesId;
                 products.NameCategory = cat.DescriptionCategory;
                 products.DataCadastro = DateTime.Now;
                 products.Ativo = true;
