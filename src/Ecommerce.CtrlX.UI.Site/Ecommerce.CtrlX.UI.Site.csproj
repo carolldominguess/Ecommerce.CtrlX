@@ -186,7 +186,7 @@
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Controllers\OrdersController.cs" />
+    <Compile Include="Controllers\OrdersNewController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -277,11 +277,14 @@
     <Content Include="Views\Products\Edit.cshtml" />
     <Content Include="Views\Products\Index.cshtml" />
     <Content Include="Views\Shared\_AccessDenied.cshtml" />
+    <Content Include="Views\OrdersNew\Create.cshtml" />
+    <Content Include="Views\OrdersNew\Edit.cshtml" />
+    <Content Include="Views\OrdersNew\Details.cshtml" />
+    <Content Include="Views\OrdersNew\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\Error\" />
-    <Folder Include="Views\Orders\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

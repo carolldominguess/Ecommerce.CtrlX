@@ -10,6 +10,7 @@ namespace Ecommerce.CtrlX.Application.AutoMapper
         {
             CreateMap<Categories, CategoriesViewModel>();
             CreateMap<Products, ProductsViewModel>();
+            CreateMap<OrdersNew, OrdersNewViewModel>();
         }
     }
 }

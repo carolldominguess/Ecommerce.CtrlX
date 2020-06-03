@@ -40,12 +40,12 @@
     <Compile Include="Entities\Categories.cs" />
     <Compile Include="Entities\Customers.cs" />
     <Compile Include="Entities\Inventories.cs" />
-    <Compile Include="Entities\Orders.cs" />
+    <Compile Include="Entities\OrdersNew.cs" />
     <Compile Include="Entities\Products.cs" />
     <Compile Include="Entities\Sales.cs" />
     <Compile Include="Entities\Users.cs" />
     <Compile Include="Interfaces\Repository\ICategoriesRepository.cs" />
-    <Compile Include="Interfaces\Repository\IOrdersRepository.cs" />
+    <Compile Include="Interfaces\Repository\IOrdersNewRepository.cs" />
     <Compile Include="Interfaces\Repository\IProductsRepository.cs" />
     <Compile Include="Interfaces\Repository\IRepository.cs" />
     <Compile Include="Interfaces\Repository\ISalesRepository.cs" />

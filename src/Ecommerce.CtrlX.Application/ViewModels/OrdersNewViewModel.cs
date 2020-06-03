@@ -1,21 +1,19 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Ecommerce.CtrlX.Application.ViewModels
 {
-    public class OrdersViewModel
+    public class OrdersNewViewModel
     {
         [Key]
-        public int OrdersId { get; set; }
+        public int OrdersNewId { get; set; }
         public DateTime? Date { get; set; }
-        public byte? Remarks { get; set; }
+        public string Remarks { get; set; }
         public string Description { get; set; }
-        public float? Price { get; set; }
+        public string Price { get; set; }
         public byte? TaxRate { get; set; }
         public int? Quantity { get; set; }
+        public int ProducstId { get; set; }
+        public virtual ProductsViewModel Products { get; set; }
     }
 }

@@ -1,32 +1,31 @@
 ﻿using Ecommerce.CtrlX.Application.Interfaces;
 using Ecommerce.CtrlX.Application.ViewModels;
-using Ecommerce.CtrlX.Cross.Cutting.MVCFilters;
 using Ecommerce.CtrlX.Infra.Data.UoW;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
 
 namespace Ecommerce.CtrlX.UI.Site.Controllers
 {
-    public class OrdersController : Controller
+    public class OrdersNewController : Controller
     {
-        private readonly IOrdersService _ordersService;
+        private readonly IOrdersNewService _ordersNewService;
         private readonly IUnitOfWork _uow;
+        private readonly IProductsService _productsService;
 
-        public OrdersController(IOrdersService ordersService, IUnitOfWork uow)
+        public OrdersNewController(IOrdersNewService ordersNewService, IUnitOfWork uow, IProductsService productsService)
         {
-            _ordersService = ordersService;
+            _ordersNewService = ordersNewService;
             _uow = uow;
+            _productsService = productsService;
         }
+
 
         // GET: Orders
         //[ClaimsAuthorizeAttribute("PermissoesOrders", "OV")]
-        public ActionResult Index(int id)
+        public ActionResult Index()
         {
-            return View(_ordersService.GetOrderById(id));
+            return View(_ordersNewService.ObterPedidos());
         }
 
         // GET: Orders/Details
@@ -37,7 +36,7 @@ namespace Ecommerce.CtrlX.UI.Site.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            var ord = _ordersService.GetOrderById(id.Value);
+            var ord = _ordersNewService.GetOrderById(id.Value);
             if (ord == null)
             {
                 return HttpNotFound();
@@ -48,21 +47,30 @@ namespace Ecommerce.CtrlX.UI.Site.Controllers
         // GET: Orders/Create
         [HttpGet]
         //[ClaimsAuthorizeAttribute("PermissoesOrders", "OI")]
-        public ActionResult Create()
+        public ActionResult Create(int id)
         {
-            return View();
+            var products = _productsService.GetProductsById(id);
+            var orders = new OrdersNewViewModel
+            {
+                ProducstId = products.ProductsId,
+                Price = products.Price,
+                Description = products.Description,
+                Remarks = products.Remarks
+            };
+
+            return View(orders);
         }
 
         // POST: Orders/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         //[ClaimsAuthorizeAttribute("PermissoesOrders", "OI")]
-        public ActionResult Create(OrdersViewModel orders)
+        public ActionResult Create(OrdersNewViewModel orders)
         {
             if (ModelState.IsValid)
             {
                 orders.Date = DateTime.Now;
-                _ordersService.Add(orders);
+                _ordersNewService.Add(orders);
                 _uow.Commit();
                 return RedirectToAction("Index");
             }
@@ -79,7 +87,7 @@ namespace Ecommerce.CtrlX.UI.Site.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            var ord = _ordersService.GetOrderById(id.Value);
+            var ord = _ordersNewService.GetOrderById(id.Value);
             if (ord == null)
             {
                 return HttpNotFound();
@@ -91,11 +99,11 @@ namespace Ecommerce.CtrlX.UI.Site.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         //[ClaimsAuthorizeAttribute("PermissoesOrders", "OE")]
-        public ActionResult Edit(OrdersViewModel orders)
+        public ActionResult Edit(OrdersNewViewModel orders)
         {
             if (ModelState.IsValid)
             {
-                _ordersService.Update(orders);
+                _ordersNewService.Update(orders);
                 _uow.Commit();
                 return RedirectToAction("Index");
             }
@@ -106,7 +114,7 @@ namespace Ecommerce.CtrlX.UI.Site.Controllers
         {
             if (disposing)
             {
-                _ordersService.Dispose();
+                _ordersNewService.Dispose();
             }
             base.Dispose(disposing);
         }

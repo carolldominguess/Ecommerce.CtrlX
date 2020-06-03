@@ -16,13 +16,13 @@ namespace Ecommerce.CtrlX.CrossCutting.IoC
             container.Register<ICategoriesService, CategorieService>(Lifestyle.Scoped);
             container.Register<IProductsService, ProductsService>(Lifestyle.Scoped);
             container.Register<ISalesService, SalesService>(Lifestyle.Scoped);
-            container.Register<IOrdersService, OrdersService>(Lifestyle.Scoped);
+            container.Register<IOrdersNewService, OrdersNewService>(Lifestyle.Scoped);
 
             //repository
             container.Register<ICategoriesRepository, CategoriesRepository>(Lifestyle.Scoped);
             container.Register<IProductsRepository, ProductsRepository>(Lifestyle.Scoped);
             container.Register<ISalesRepository, SalesRepository>(Lifestyle.Scoped);
-            container.Register<IOrdersRepository, OrdersRepository>(Lifestyle.Scoped);
+            container.Register<IOrdersNewRepository, OrdersNewRepository>(Lifestyle.Scoped);
 
             //infra
             container.Register<IUnitOfWork, UnitOfWork>(Lifestyle.Scoped);

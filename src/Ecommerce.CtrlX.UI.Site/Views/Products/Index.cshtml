@@ -70,7 +70,7 @@
                     @Html.ActionLink("Editar", "Edit", new { id = item.ProductsId }) |
                     @Html.ActionLink("Detalhes", "Details", new { id = item.ProductsId }) |
                     @Html.ActionLink("Desativar", "Delete", new { id = item.ProductsId }) |
-                    @Html.ActionLink("Comprar", "", new { id = item.ProductsId })
+                    <a class="btn btn-primary btn-sm" href="@Url.Action("Create", "OrdersNew", new { id = item.ProductsId })">Comprar</a>
                 </td>
             </tr>
         }
