@@ -9,32 +9,32 @@
 <p>
     @Html.ActionLink("Incluir novo produto", "Create")
 </p>
-<table class="table table-responsive">
+<table class="table table-responsive table-hover">
     <tr>
-        <th>
+        <th class="text-center">
             <label>Categoria</label>
         </th>
-        <th>
+        <th class="text-center">
             <label>Descrição</label>
         </th>
-        <th>
+        <th class="text-center">
             <label>Código do produto</label>
         </th>
-        <th>
+        <th class="text-center">
             <label>Preço</label>
         </th>
-        @*<th>
-                @Html.DisplayNameFor(model => model.Image)
-            </th>*@
-        <th>
-            <label>Observações</label>
+        <th class="text-center">
+            Imagem
         </th>
-        <th>
+        <th class="text-center">
+            <label>Marca</label>
+        </th>
+        <th class="text-center">
             <label>Data cadastro</label>
         </th>
         @*<th>
-                @Html.DisplayNameFor(model => model.Ativo)
-            </th>*@
+            Ativo
+        </th>*@
         <th></th>
     </tr>
     @foreach (var item in Model)
@@ -54,9 +54,16 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.Price)
                 </td>
-                @*<td>
-                        @Html.DisplayFor(modelItem => item.Image)
-                    </td>*@
+                @if (item.Image != null)
+                {
+                    <td>
+                        @{
+                            var base64 = Convert.ToBase64String(item.Image);
+                            var imgSrc = String.Format("data:image/gif;base64,{0}", base64);
+                        }
+                        <img src='@imgSrc' style="max-width:200px; max-height:200px;" />
+                    </td>
+                }
                 <td>
                     @Html.DisplayFor(modelItem => item.Remarks)
                 </td>
@@ -64,12 +71,12 @@
                     @Html.DisplayFor(modelItem => item.DataCadastro)
                 </td>
                 @*<td>
-                        @Html.DisplayFor(modelItem => item.Ativo)
-                    </td>*@
+                    @Html.DisplayFor(modelItem => item.Ativo)
+                </td>*@
                 <td>
-                    @Html.ActionLink("Editar", "Edit", new { id = item.ProductsId }) |
-                    @Html.ActionLink("Detalhes", "Details", new { id = item.ProductsId }) |
-                    @Html.ActionLink("Desativar", "Delete", new { id = item.ProductsId }) |
+                    @Html.ActionLink("Editar", "Edit", new { id = item.ProductsId }) 
+                    @Html.ActionLink("Detalhes", "Details", new { id = item.ProductsId }) 
+                    @Html.ActionLink("Desativar", "Delete", new { id = item.ProductsId }) 
                     <a class="btn btn-primary btn-sm" href="@Url.Action("Create", "OrdersNew", new { id = item.ProductsId })">Comprar</a>
                 </td>
             </tr>

@@ -39,16 +39,16 @@
             </div>
         </div>
 
-        @*<div class="form-group">
+        <div class="form-group">
             @Html.LabelFor(m => m.ImageUpload, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.TextBoxFor(m => m.ImageUpload, new { type = "file", @class = "form-control" })
                 @Html.ValidationMessageFor(m => m.ImageUpload, "", new { @class = "text-danger" })
             </div>
-        </div>*@
+        </div>
 
         <div class="form-group">
-            <label class="control-label col-md-2">Observações</label>
+            <label class="control-label col-md-2">Marca</label>
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Remarks, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Remarks, "", new { @class = "text-danger" })
@@ -67,7 +67,7 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="Criar" class="btn btn-default" />
             </div>
         </div>
     </div>

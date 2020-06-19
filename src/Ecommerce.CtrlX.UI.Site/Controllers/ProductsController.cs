@@ -57,20 +57,20 @@ namespace Ecommerce.CtrlX.UI.Site.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(ProductsViewModel products)
         {
-            //var imageTypes = new string[]{
-            //        "image/gif",
-            //        "image/jpeg",
-            //        "image/pjpeg",
-            //        "image/png"
-            //    };
-            //if (products.ImageUpload == null || products.ImageUpload.ContentLength == 0)
-            //{
-            //    ModelState.AddModelError("ImageUpload", "Este campo é obrigatório");
-            //}
-            //else if (!imageTypes.Contains(products.ImageUpload.ContentType))
-            //{
-            //    ModelState.AddModelError("ImageUpload", "Escolha uma imagem GIF, JPG ou PNG.");
-            //}
+            var imageTypes = new string[]{
+                    "image/gif",
+                    "image/jpeg",
+                    "image/pjpeg",
+                    "image/png"
+                };
+            if (products.ImageUpload == null || products.ImageUpload.ContentLength == 0)
+            {
+                ModelState.AddModelError("ImageUpload", "Este campo é obrigatório");
+            }
+            else if (!imageTypes.Contains(products.ImageUpload.ContentType))
+            {
+                ModelState.AddModelError("ImageUpload", "Escolha uma imagem GIF, JPG ou PNG.");
+            }
 
             if (ModelState.IsValid)
             {
@@ -80,14 +80,14 @@ namespace Ecommerce.CtrlX.UI.Site.Controllers
                 products.Ativo = true;
                 products.NameCategory = cat.DescriptionCategory;
 
-                //byte[] arrayImagem = null;
-                //using (MemoryStream memoryStream = new MemoryStream())
-                //{
-                //    products.ImageUpload.InputStream.CopyTo(memoryStream);
-                //    arrayImagem = memoryStream.ToArray();
-                //}
+                byte[] arrayImagem = null;
+                using (MemoryStream memoryStream = new MemoryStream())
+                {
+                    products.ImageUpload.InputStream.CopyTo(memoryStream);
+                    arrayImagem = memoryStream.ToArray();
+                }
 
-                //products.Image = arrayImagem;
+                products.Image = arrayImagem;
 
                 //using (var binaryReader = new BinaryReader(products.ImageUpload.InputStream))
                 //    products.Image = binaryReader.ReadBytes(products.ImageUpload.ContentLength);
