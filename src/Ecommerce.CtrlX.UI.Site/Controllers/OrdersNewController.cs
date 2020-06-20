@@ -7,7 +7,8 @@ using System.Web.Mvc;
 
 namespace Ecommerce.CtrlX.UI.Site.Controllers
 {
-    public class OrdersNewController : Controller
+    [Authorize]
+    public class OrdersNewController : BaseController
     {
         private readonly IOrdersNewService _ordersNewService;
         private readonly IUnitOfWork _uow;
@@ -52,6 +53,7 @@ namespace Ecommerce.CtrlX.UI.Site.Controllers
             var products = _productsService.GetProductsById(id);
             var orders = new OrdersNewViewModel
             {
+                Date = DateTime.Now,
                 ProducstId = products.ProductsId,
                 Price = products.Price,
                 Description = products.Description,
@@ -72,9 +74,9 @@ namespace Ecommerce.CtrlX.UI.Site.Controllers
                 orders.Date = DateTime.Now;
                 _ordersNewService.Add(orders);
                 _uow.Commit();
+                Success(string.Format("Pedido efetuado com sucesso!"), true);
                 return RedirectToAction("Index");
-            }
-
+            }            
             return View(orders);
         }
 
@@ -105,6 +107,7 @@ namespace Ecommerce.CtrlX.UI.Site.Controllers
             {
                 _ordersNewService.Update(orders);
                 _uow.Commit();
+                Success(string.Format("Pedido alterado com sucesso!"), true);
                 return RedirectToAction("Index");
             }
             return View(orders);

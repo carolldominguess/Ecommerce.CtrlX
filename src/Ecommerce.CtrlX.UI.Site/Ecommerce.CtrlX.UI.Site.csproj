@@ -182,6 +182,7 @@
     <Compile Include="App_Start\SimpleInjectorInitializer.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\CategoriesController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -204,10 +205,8 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\logo.jpeg" />
-    <Content Include="Content\template\bootstrap.min.css" />
-    <Content Include="Content\template\font-awesome.min.css" />
-    <Content Include="Content\template\owl.carousel.css" />
-    <Content Include="Content\template\responsive.css" />
+    <Content Include="Content\Notificacao.css" />
+    <Content Include="Content\theme.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -227,12 +226,6 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
-    <Content Include="Scripts\template\bxslider.min.js" />
-    <Content Include="Scripts\template\jquery.easing.1.3.min.js" />
-    <Content Include="Scripts\template\jquery.sticky.js" />
-    <Content Include="Scripts\template\main.js" />
-    <Content Include="Scripts\template\owl.carousel.min.js" />
-    <Content Include="Scripts\template\script.slider.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -282,9 +275,11 @@
     <Content Include="Views\OrdersNew\Edit.cshtml" />
     <Content Include="Views\OrdersNew\Details.cshtml" />
     <Content Include="Views\OrdersNew\Index.cshtml" />
+    <Content Include="Scripts\Notificacao.min.js" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Base\" />
     <Folder Include="Views\Error\" />
   </ItemGroup>
   <ItemGroup>
@@ -312,6 +307,10 @@
     <ProjectReference Include="..\Ecommerce.CtrlX.CrossCutting.IoC\Ecommerce.CtrlX.CrossCutting.IoC.csproj">
       <Project>{72bbf9ed-c072-4612-b734-866bd3712bd0}</Project>
       <Name>Ecommerce.CtrlX.CrossCutting.IoC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Ecommerce.CtrlX.CrossCutting.Tools\Ecommerce.CtrlX.CrossCutting.Tools.csproj">
+      <Project>{048281FF-744B-4D32-A3BE-C648A2C1C82E}</Project>
+      <Name>Ecommerce.CtrlX.CrossCutting.Tools</Name>
     </ProjectReference>
     <ProjectReference Include="..\Ecommerce.CtrlX.Infra.Data\Ecommerce.CtrlX.Infra.Data.csproj">
       <Project>{69926120-006B-45AC-A45A-C2E43B6364C3}</Project>

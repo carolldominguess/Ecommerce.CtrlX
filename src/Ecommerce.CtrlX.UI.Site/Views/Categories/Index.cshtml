@@ -5,57 +5,80 @@
     ViewBag.Title = "Categorias";
 }
 
-<h2>@ViewBag.Title</h2>
-<br />
-@{ if (this.IfClaim("PermissoesCategories", "CI"))
-    {
-        <div class="pull-right">
-            <a class="btn btn-primary btn-lg" href="@Url.Action("Create", "Categories")">Nova categoria</a>
-        </div>
+<style>
+    .colorTh {
+        color: whitesmoke;
     }
-}
-<br />
-<br />
-<br />
-<table class="table">
-    <tr>
-        <th class="text-center">
-            Nome Categoria
-        </th>
-        @{ if (this.IfClaim("PermissoesCategories", "CI"))
-            {
-                <th>
-                    Data Cadastro
-                </th>
-                <th>
-                    Ativo
-                </th>
-                <th></th>
-            }
-        }
-    </tr>
 
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td class="text-center">
-                <a class="btn btn-default" href="@Url.Action("Index", "Products")">@Html.DisplayFor(modelItem => item.DescriptionCategory)</a>
-            </td>
-            @{ if (this.IfClaim("PermissoesCategories", "CI"))
-                {
-                    <td>
-                         @Html.DisplayFor(modelItem => item.DataCadastro)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Ativo)
-                    </td>
-                    <td>
-                        @Html.ActionLink("Editar", "Edit", new { @class = "btn btn-primary", id = item.CategoriesId }).IfClaimHelper("PermissoesCategories", "CE") |
-                        @Html.ActionLink("Detalhes", "Details", new { @class = "btn btn-info", id = item.CategoriesId }).IfClaimHelper("PermissoesCategories", "CD") |
-                        @Html.ActionLink("Desativar", "Delete", new { @class = "btn btn-danger", id = item.CategoriesId }).IfClaimHelper("PermissoesCategories", "CX")
-                    </td>
-                }
-            }
-        </tr>
+    .theme-table {
+        border: 1px solid black;
+        table-layout: fixed;
     }
-</table>
+
+    .theme {
+        background: url(../../Content/theme.jpg);
+        background-repeat:;
+    }
+</style>
+<div class="row">
+    <h2>@ViewBag.Title</h2>
+    <br />
+    @{ if (this.IfClaim("PermissoesCategories", "CI"))
+        {
+            <div class="pull-right">
+                <a class="btn btn-primary btn-lg" href="@Url.Action("Create", "Categories")">Nova categoria</a>
+            </div>
+        }
+    }
+    <br />
+    <br />
+    <br />
+
+    <div class="table-responsive">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th class="text-center">
+                        Nome Categoria
+                    </th>
+                    @{ if (this.IfClaim("PermissoesCategories", "CI"))
+                        {
+                            <th class="text-center">
+                                Data Cadastro
+                            </th>
+                            <th class="text-center">
+                                Ativo
+                            </th>
+                            <th></th>
+                        }
+                    }
+                </tr>
+            </thead>
+            <tbody class="theme theme-table">
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td class="text-center colorTh">
+                            <a class="btn btn-lg btn-default" href="@Url.Action("Index", "Products")">@Html.DisplayFor(modelItem => item.DescriptionCategory)</a>
+                        </td>
+                        @{ if (this.IfClaim("PermissoesCategories", "CI"))
+                            {
+                                <td class="text-center colorTh">
+                                    @Html.DisplayFor(modelItem => item.DataCadastro)
+                                </td>
+                                <td class="text-center colorTh">
+                                    @Html.DisplayFor(modelItem => item.Ativo)
+                                </td>
+                                <td class="text-center colorTh">
+                                    <a class="btn btn-info" href="@Url.Action("Edit", "Categories", new { id = item.CategoriesId })">Editar</a> |                        
+                                    <a class="btn btn-info" href="@Url.Action("Details", "Categories", new { id = item.CategoriesId })">Detalhes</a> |                        
+                                    <a class="btn btn-danger" href="@Url.Action("Delete", "Categories", new { id = item.CategoriesId })">Desativar</a>
+                                </td>
+                            }
+                        }
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

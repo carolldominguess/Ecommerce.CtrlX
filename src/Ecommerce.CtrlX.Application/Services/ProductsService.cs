@@ -5,6 +5,7 @@ using Ecommerce.CtrlX.Domain.Entities;
 using Ecommerce.CtrlX.Domain.Interfaces.Repository;
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Ecommerce.CtrlX.Application.Services
 {
@@ -32,6 +33,10 @@ namespace Ecommerce.CtrlX.Application.Services
             return Mapper.Map<ProductsViewModel>(_productsRepository.GetProductsById(id));
         }
 
+        public async Task<ProductsViewModel> GetProdutosByIdAsync(int id)
+        {
+            return Mapper.Map<ProductsViewModel>(await _productsRepository.GetProdutosByIdAsync(id));
+        }
         public void Remove(int id)
         {
             _productsRepository.Remove(id);

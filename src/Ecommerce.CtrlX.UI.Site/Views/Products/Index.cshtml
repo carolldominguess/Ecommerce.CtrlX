@@ -1,4 +1,5 @@
-﻿@model IEnumerable<Ecommerce.CtrlX.Application.ViewModels.ProductsViewModel>
+﻿@using Ecommerce.CtrlX.UI.Site.Helpers
+@model IEnumerable<Ecommerce.CtrlX.Application.ViewModels.ProductsViewModel>
 
 @{
     ViewBag.Title = "Produtos";
@@ -6,9 +7,14 @@
 
 <h2>@ViewBag.Title</h2>
 
-<p>
-    @Html.ActionLink("Incluir novo produto", "Create")
-</p>
+@{ if (this.IfClaim("PermissoesProducts", "PI"))
+    {
+        <p>
+            @Html.ActionLink("Incluir novo produto", "Create")
+        </p>
+    }
+}
+
 <table class="table table-responsive table-hover">
     <tr>
         <th class="text-center">
@@ -18,23 +24,20 @@
             <label>Descrição</label>
         </th>
         <th class="text-center">
-            <label>Código do produto</label>
-        </th>
-        <th class="text-center">
-            <label>Preço</label>
+            <label>Marca</label>
         </th>
         <th class="text-center">
             Imagem
         </th>
         <th class="text-center">
-            <label>Marca</label>
+            <label>Preço</label>
         </th>
-        <th class="text-center">
-            <label>Data cadastro</label>
-        </th>
-        @*<th>
-            Ativo
-        </th>*@
+        @if (this.IfClaim("PermissoesProducts", "PV"))
+        {
+            <th class="text-center">
+                <label>Data cadastro</label>
+            </th>
+        }
         <th></th>
     </tr>
     @foreach (var item in Model)
@@ -49,10 +52,7 @@
                     @Html.DisplayFor(modelItem => item.Description)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.BarCode)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Price)
+                    @Html.DisplayFor(modelItem => item.Remarks)
                 </td>
                 @if (item.Image != null)
                 {
@@ -65,19 +65,31 @@
                     </td>
                 }
                 <td>
-                    @Html.DisplayFor(modelItem => item.Remarks)
+                    @Html.DisplayFor(modelItem => item.Price)
                 </td>
+                @if (this.IfClaim("PermissoesProducts", "PV"))
+                {
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DataCadastro)
+                    </td>
+                }
                 <td>
-                    @Html.DisplayFor(modelItem => item.DataCadastro)
-                </td>
-                @*<td>
-                    @Html.DisplayFor(modelItem => item.Ativo)
-                </td>*@
-                <td>
-                    @Html.ActionLink("Editar", "Edit", new { id = item.ProductsId }) 
-                    @Html.ActionLink("Detalhes", "Details", new { id = item.ProductsId }) 
-                    @Html.ActionLink("Desativar", "Delete", new { id = item.ProductsId }) 
-                    <a class="btn btn-primary btn-sm" href="@Url.Action("Create", "OrdersNew", new { id = item.ProductsId })">Comprar</a>
+                    @if (this.IfClaim("PermissoesProducts", "PE"))
+                    {
+                        <a class="btn btn-info" href="@Url.Action("Edit", "Products", new { id = item.ProductsId })">Editar</a>
+                    }
+                    <p class="clearfix"></p>
+                    @if (this.IfClaim("PermissoesProducts", "PD"))
+                    {
+                        <a class="btn btn-info" href="@Url.Action("Details", "Products", new { id = item.ProductsId })">Detalhes</a>
+                    }
+                    <p class="clearfix"></p>
+                    @if (this.IfClaim("PermissoesProducts", "PX"))
+                    {
+                        <a class="btn btn-danger" href="@Url.Action("Delete", "Products", new { id = item.ProductsId })">Desativar</a>
+                    }
+                    <p class="clearfix"></p>
+                    <a class="btn btn-success" href="@Url.Action("Create", "OrdersNew", new { id = item.ProductsId })">Comprar</a>
                 </td>
             </tr>
         }

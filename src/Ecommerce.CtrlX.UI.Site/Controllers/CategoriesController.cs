@@ -11,7 +11,7 @@ namespace Ecommerce.CtrlX.UI.Site.Controllers
     // PermissoesCategories = CV,CD,CI,CE,CX
 
     //[Authorize]
-    public class CategoriesController : Controller
+    public class CategoriesController : BaseController
     {
         private readonly ICategoriesService _categoriesService;
         private readonly IUnitOfWork _uow;
@@ -65,6 +65,7 @@ namespace Ecommerce.CtrlX.UI.Site.Controllers
                 categories.Ativo = true;
                 _categoriesService.Add(categories);
                 _uow.Commit();
+                Success(string.Format("Categoria íncluida com sucesso!"), true);
                 return RedirectToAction("Index");
             }
 
@@ -96,8 +97,10 @@ namespace Ecommerce.CtrlX.UI.Site.Controllers
         {
             if (ModelState.IsValid)
             {
+                categories.Ativo = true;
                 _categoriesService.Update(categories);
                 _uow.Commit();
+                Success(string.Format("Categoria alterada com sucesso!"), true);
                 return RedirectToAction("Index");
             }
             return View(categories);

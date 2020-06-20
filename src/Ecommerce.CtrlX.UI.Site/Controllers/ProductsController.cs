@@ -1,16 +1,17 @@
 ﻿using Ecommerce.CtrlX.Application.Interfaces;
 using Ecommerce.CtrlX.Application.ViewModels;
+using Ecommerce.CtrlX.Cross.Cutting.MVCFilters;
 using Ecommerce.CtrlX.Infra.Data.UoW;
 using System;
 using System.IO;
 using System.Linq;
 using System.Net;
-using System.Web;
+using System.Threading.Tasks;
 using System.Web.Mvc;
 
 namespace Ecommerce.CtrlX.UI.Site.Controllers
 {
-    public class ProductsController : Controller
+    public class ProductsController : BaseController
     {
         private readonly IProductsService _productsService;
         private readonly ICategoriesService _categoriesService;
@@ -23,6 +24,8 @@ namespace Ecommerce.CtrlX.UI.Site.Controllers
             _uow = uow;
         }
 
+        //PermissoesProducts PV, PD, PI, PE, PX
+
         // GET: Products
         public ActionResult Index()
         {
@@ -30,6 +33,7 @@ namespace Ecommerce.CtrlX.UI.Site.Controllers
         }
 
         // GET: Products/Details/5
+        [ClaimsAuthorizeAttribute("PermissoesProducts", "PD")]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -45,6 +49,7 @@ namespace Ecommerce.CtrlX.UI.Site.Controllers
         }
 
         // GET: Products/Create
+        [ClaimsAuthorizeAttribute("PermissoesProducts", "PI")]
         public ActionResult Create()
         {
             ViewBag.Categorias = _categoriesService.GetAll();
@@ -55,6 +60,7 @@ namespace Ecommerce.CtrlX.UI.Site.Controllers
         // POST: Products/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [ClaimsAuthorizeAttribute("PermissoesProducts", "PI")]
         public ActionResult Create(ProductsViewModel products)
         {
             var imageTypes = new string[]{
@@ -95,6 +101,9 @@ namespace Ecommerce.CtrlX.UI.Site.Controllers
 
                 _productsService.Add(products);
                 _uow.Commit();
+
+                Success(string.Format("Produto incluído com sucesso!"), true);
+
                 return RedirectToAction("Index");
             }
 
@@ -103,14 +112,15 @@ namespace Ecommerce.CtrlX.UI.Site.Controllers
         }
 
         // GET: Products/Edit/5
-        public ActionResult Edit(int? id)
+        [ClaimsAuthorizeAttribute("PermissoesProducts", "PE")]
+        public async Task<ActionResult> Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             ViewBag.Categorias = _categoriesService.GetAll();
-            var products = _productsService.GetProductsById(id.Value);
+            var products = await _productsService.GetProdutosByIdAsync(id.Value);            
             if (products == null)
             {
                 return HttpNotFound();
@@ -121,8 +131,11 @@ namespace Ecommerce.CtrlX.UI.Site.Controllers
         // POST: Products/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(ProductsViewModel products)
+        [ClaimsAuthorizeAttribute("PermissoesProducts", "PE")]
+        public async Task<ActionResult> Edit(ProductsViewModel products)
         {
+            var prod = await _productsService.GetProdutosByIdAsync(products.ProductsId);
+            products.Image = prod.Image;
             if (ModelState.IsValid)
             {
                 var cat = _categoriesService.GetCategoriesById(products.CategoriesId);
@@ -132,12 +145,14 @@ namespace Ecommerce.CtrlX.UI.Site.Controllers
                 products.Ativo = true;
                 _productsService.Update(products);
                 _uow.Commit();
+                Success(string.Format("Produto alterado com sucesso!"), true);
                 return RedirectToAction("Index");
-            }
+            }            
             return View(products);
         }
 
         // GET: Products/Delete/5
+        [ClaimsAuthorizeAttribute("PermissoesProducts", "PX")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -155,6 +170,7 @@ namespace Ecommerce.CtrlX.UI.Site.Controllers
         // POST: Products/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [ClaimsAuthorizeAttribute("PermissoesProducts", "PX")]
         public ActionResult DeleteConfirmed(int id)
         {
             _productsService.Remove(id);

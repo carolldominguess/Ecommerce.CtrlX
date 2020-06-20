@@ -19,13 +19,6 @@
         </dd>
 
         <dt>
-            Código do produto
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.BarCode)
-        </dd>
-
-        <dt>
             Preço
         </dt>
 
@@ -33,13 +26,20 @@
             @Html.DisplayFor(model => model.Price)
         </dd>
 
-        @*<dt>
-                @Html.DisplayNameFor(model => model.Image)
-            </dt>
+        <dt>
+            Imagem
+        </dt>
 
+        @if (Model.Image != null)
+        {
             <dd>
-                @Html.DisplayFor(model => model.Image)
-            </dd>*@
+                @{
+                    var base64 = Convert.ToBase64String(Model.Image);
+                    var imgSrc = String.Format("data:image/gif;base64,{0}", base64);
+                }
+                <img src='@imgSrc' style="max-width:200px; max-height:200px;" />
+            </dd>
+        }
 
         <dt>
             Observações

@@ -24,14 +24,6 @@
         </div>
 
         <div class="form-group">
-            <label class="control-label col-md-2">Código do produto</label>
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.BarCode, new { htmlAttributes = new { @class = "form-control barCode", id = "barCode" } })
-                @Html.ValidationMessageFor(model => model.BarCode, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
             <label class="control-label col-md-2">Preço</label>
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Price, new { htmlAttributes = new { @class = "form-control", id="price" } })

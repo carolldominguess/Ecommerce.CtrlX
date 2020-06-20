@@ -12,13 +12,9 @@ namespace Ecommerce.CtrlX.Application.ViewModels
         [MaxLength(150, ErrorMessage = "O limite máximo é de 150 caracteres")]
         public string Description { get; set; }
         [Required]
-        [MaxLength(30, ErrorMessage ="O limite máximo é de 20 numeros")]
-        public string BarCode { get; set; }
-        [Required]
         [MaxLength(10, ErrorMessage = "O limite máximo é de 10 caracteres")]
         public string Price { get; set; }
         public byte[] Image { get; set; }
-        [Required]
         [DataType(DataType.Upload)]
         [Display(Name = "Imagem")]
         public HttpPostedFileBase ImageUpload { get; set; }
