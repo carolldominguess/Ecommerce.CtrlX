@@ -204,8 +204,13 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\gallery.min.css" />
+    <Content Include="Content\gallery.theme.css" />
     <Content Include="Content\logo.jpeg" />
+    <Content Include="Content\Mouse_Gamer.jpeg" />
     <Content Include="Content\Notificacao.css" />
+    <Content Include="Content\Pc_Gamer.jpeg" />
+    <Content Include="Content\Teclado_Gamer.jpeg" />
     <Content Include="Content\theme.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
