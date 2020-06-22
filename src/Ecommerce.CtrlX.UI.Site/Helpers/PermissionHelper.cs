@@ -19,7 +19,7 @@ namespace Ecommerce.CtrlX.UI.Site.Helpers
             return ValidadePermission(claimName, claimValue);
         }
 
-        private static bool ValidadePermission(string claimName, string claimValue)
+        public static bool ValidadePermission(string claimName, string claimValue)
         {
             var identity = (ClaimsIdentity)HttpContext.Current.User.Identity;
 

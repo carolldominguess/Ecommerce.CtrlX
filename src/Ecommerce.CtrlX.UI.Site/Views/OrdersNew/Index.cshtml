@@ -1,63 +1,74 @@
-﻿@model IEnumerable<Ecommerce.CtrlX.Application.ViewModels.OrdersNewViewModel>
+﻿@using Ecommerce.CtrlX.UI.Site.Helpers
+@model IEnumerable<Ecommerce.CtrlX.Application.ViewModels.OrdersNewViewModel>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Compras";
 }
 
-<h2>Index</h2>
+<h2>Compras</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
 <table class="table">
     <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Date)
+        <th class="text-center">
+            Data da compra
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Remarks)
+        <th class="text-center">
+            Marca
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Description)
+        <th class="text-center">
+            Descrição
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Price)
+        <th class="text-center">
+            Quantidade
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TaxRate)
+        <th class="text-center">
+            Preço R$
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Quantity)
+        <th class="text-center">
+            Valor Total
         </th>
+        @if (this.IfClaim("PermissoesProducts", "PV"))
+        {
+            <th class="text-center">
+                Clientes
+            </th>
+        }
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Date)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Remarks)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Description)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Price)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TaxRate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Quantity)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.OrdersNewId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.OrdersNewId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.OrdersNewId })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Remarks)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Quantity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ValorTotal)
+            </td>
+            @if (this.IfClaim("PermissoesProducts", "PV"))
+            {
+                <td>
+                    @Html.DisplayFor(modelItem => item.User)
+                </td>
+            }
+            <td>
+                <a class="btn btn-info" href="@Url.Action("Edit", "OrdersNew", new { id = item.OrdersNewId })">Alterar Endereço</a>
+                <p class="clearfix"></p>
+                <a class="btn btn-info" href="@Url.Action("Details", "OrdersNew", new { id = item.OrdersNewId })">Detalhes</a>
+            </td>
+        </tr>
+    }
 
 </table>

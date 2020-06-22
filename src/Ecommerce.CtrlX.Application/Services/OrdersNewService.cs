@@ -4,6 +4,7 @@ using Ecommerce.CtrlX.Application.ViewModels;
 using Ecommerce.CtrlX.Domain.Entities;
 using Ecommerce.CtrlX.Domain.Interfaces.Repository;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Ecommerce.CtrlX.Application.Services
 {
@@ -27,11 +28,19 @@ namespace Ecommerce.CtrlX.Application.Services
             return Mapper.Map<OrdersNewViewModel>(_ordersNewRepository.GetOrderById(id));
         }
 
+        public async Task<OrdersNewViewModel> GetOrdersByIdAsync(int id)
+        {
+            return Mapper.Map<OrdersNewViewModel>(await _ordersNewRepository.GetOrdersByIdAsync(id));
+        }
+
         public IEnumerable<OrdersNewViewModel> ObterPedidos()
         {
             return Mapper.Map<IEnumerable<OrdersNewViewModel>>(_ordersNewRepository.ObterPedidos());
         }
-
+        public IEnumerable<OrdersNewViewModel> ObterPedidosByUser(string user)
+        {
+            return Mapper.Map<IEnumerable<OrdersNewViewModel>>(_ordersNewRepository.ObterPedidosByUser(user));
+        }
         public OrdersNewViewModel Update(OrdersNewViewModel orders)
         {
             var order = Mapper.Map<OrdersNew>(orders);
@@ -40,6 +49,6 @@ namespace Ecommerce.CtrlX.Application.Services
         public void Dispose()
         {
             _ordersNewRepository.Dispose();
-        }
+        }        
     }
 }

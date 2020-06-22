@@ -35,6 +35,10 @@ namespace Ecommerce.CtrlX.UI.Site
             bundles.Add(new ScriptBundle("~/bundles/products").Include(
                       "~/Scripts/jquery.mask.js",
                       "~/Scripts/Forms/products.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/orders").Include(
+                      "~/Scripts/jquery.mask.js",
+                      "~/Scripts/Forms/orders.js"));
         }
     }
 }

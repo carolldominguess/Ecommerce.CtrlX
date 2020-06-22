@@ -1,17 +1,16 @@
 ﻿@model Ecommerce.CtrlX.Application.ViewModels.OrdersNewViewModel
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Detalhes";
 }
 
-<h2>Details</h2>
+<h2>Detalhes da compra</h2>
 
 <div>
-    <h4>OrdersViewModel</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Date)
+            Data e hora da compra
         </dt>
 
         <dd>
@@ -19,7 +18,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Remarks)
+            Marca produto
         </dt>
 
         <dd>
@@ -27,15 +26,27 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Description)
+            Descrição
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.Description)
         </dd>
-
         <dt>
-            @Html.DisplayNameFor(model => model.Price)
+
+        </dt>
+        @if (Model.Image != null)
+        {
+            <dd>
+                @{
+                    var base64 = Convert.ToBase64String(Model.Image);
+                    var imgSrc = String.Format("data:image/gif;base64,{0}", base64);
+                }
+                <img src='@imgSrc' style="max-width:200px; max-height:200px;" />
+            </dd>
+        }
+        <dt>
+            Preço
         </dt>
 
         <dd>
@@ -43,24 +54,23 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.TaxRate)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.TaxRate)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Quantity)
+            Quantidade
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.Quantity)
         </dd>
 
+        <dt>
+            Valor Total da compra
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ValorTotal)
+        </dd>
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.OrdersNewId }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Alterar", "Edit", new { id = Model.OrdersNewId }) |
+    @Html.ActionLink("Voltar", "Index")
 </p>

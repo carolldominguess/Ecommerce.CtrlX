@@ -12,6 +12,7 @@ namespace Ecommerce.CtrlX.Application.ViewModels
         }
         [Key]
         public int CategoriesId { get; set; }
+        [Required(ErrorMessage = "Campo obrigatório")]
         public string DescriptionCategory { get; set; }
         public DateTime? DataCadastro { get; set; }
         public bool Ativo { get; set; }

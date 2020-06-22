@@ -10,6 +10,10 @@
         color: whitesmoke;
     }
 
+    .colordiv {
+        background-color:white;
+    }
+
     .theme-table {
         border: 1px solid black;
         table-layout: fixed;
@@ -20,6 +24,7 @@
         background-repeat:;
     }
 </style>
+
 <div class="row">
     <h2>@ViewBag.Title</h2>
     <br />
@@ -59,19 +64,23 @@
                 {
                     <tr>
                         <td class="text-center colorTh">
-                            <a class="btn btn-lg btn-default" href="@Url.Action("Index", "Products")">@Html.DisplayFor(modelItem => item.DescriptionCategory)</a>
+                            <a class="btn btn-lg btn-default" href="@Url.Action("Index", "Products")">@Html.DisplayFor(modelItem => item.DescriptionCategory): Ir para produtos</a>
                         </td>
                         @{ if (this.IfClaim("PermissoesCategories", "CI"))
                             {
-                                <td class="text-center colorTh">
-                                    @Html.DisplayFor(modelItem => item.DataCadastro)
+                                <td class="text-center">
+                                    <div class="colordiv">
+                                        @Html.DisplayFor(modelItem => item.DataCadastro)
+                                    </div>
+                                </td>
+                                <td class="text-center">
+                                    <div class="colordiv">
+                                        @Html.DisplayFor(modelItem => item.Ativo)
+                                    </div>
                                 </td>
                                 <td class="text-center colorTh">
-                                    @Html.DisplayFor(modelItem => item.Ativo)
-                                </td>
-                                <td class="text-center colorTh">
-                                    <a class="btn btn-info" href="@Url.Action("Edit", "Categories", new { id = item.CategoriesId })">Editar</a> |                        
-                                    <a class="btn btn-info" href="@Url.Action("Details", "Categories", new { id = item.CategoriesId })">Detalhes</a> |                        
+                                    <a class="btn btn-info" href="@Url.Action("Edit", "Categories", new { id = item.CategoriesId })">Editar</a> |
+                                    <a class="btn btn-info" href="@Url.Action("Details", "Categories", new { id = item.CategoriesId })">Detalhes</a> |
                                     <a class="btn btn-danger" href="@Url.Action("Delete", "Categories", new { id = item.CategoriesId })">Desativar</a>
                                 </td>
                             }
