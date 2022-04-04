@@ -4,9 +4,9 @@
     ViewBag.Title = "Desativar";
 }
 
-<h2>Desativar Categoria</h2>
+<h2>Remover Categoria</h2>
 
-<h3>Tem certeza de que deseja desativar isso?</h3>
+<h3>Tem certeza de que deseja excluir isso?</h3>
 <div>
     <hr />
     <dl class="dl-horizontal">
@@ -40,7 +40,7 @@
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Desativar" class="btn btn-default" /> |
+            <input type="submit" value="Excluir" class="btn btn-default" /> |
             @Html.ActionLink("Voltar", "Index")
         </div>
     }

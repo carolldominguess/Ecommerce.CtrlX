@@ -86,7 +86,7 @@
                     <p class="clearfix"></p>
                     @if (this.IfClaim("PermissoesProducts", "PX"))
                     {
-                        <a class="btn btn-danger" href="@Url.Action("Delete", "Products", new { id = item.ProductsId })">Desativar</a>
+                        <a class="btn btn-danger" href="@Url.Action("Delete", "Products", new { id = item.ProductsId })">Excluir</a>
                     }
                     <p class="clearfix"></p>
                     <a class="btn btn-success" href="@Url.Action("Create", "OrdersNew", new { id = item.ProductsId })">Comprar</a>

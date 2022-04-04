@@ -15,7 +15,7 @@ namespace Ecommerce.CtrlX.Infra.Data.Repository
 
         public Categories GetCategoriesById(int id)
         {
-            return SearchFirstOrDefault(x => x.CategoriesId == id && x.Ativo == true);
+            return SearchFirstOrDefault(x => x.CategoriesId == id && x.Ativo);
         }
 
         public IEnumerable<Categories> ObterAtivos(int id)
@@ -32,7 +32,7 @@ namespace Ecommerce.CtrlX.Infra.Data.Repository
         public override IEnumerable<Categories> GetAll()
         {
             var cn = Db.Database.Connection;
-            var sql = @"SELECT * FROM CtrlX_Categories";
+            var sql = @"SELECT * FROM CtrlX_Categories WHERE Ativo = 1";
             return cn.Query<Categories>(sql);
         }
 

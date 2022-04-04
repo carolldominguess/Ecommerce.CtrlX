@@ -41,7 +41,7 @@ namespace Ecommerce.CtrlX.Infra.Data.Repository
         public override IEnumerable<Products> GetAll()
         {
             var cn = Db.Database.Connection;
-            var sql = @"SELECT * FROM CtrlX_Products";
+            var sql = @"SELECT * FROM CtrlX_Products WHERE Ativo = 1";
             return cn.Query<Products>(sql);
         }
     }
